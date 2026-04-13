@@ -1,6 +1,6 @@
-# Napsugár Könyvelés – Weboldal
+# Nagy Napsugár – Weboldal
 
-Egy-oldalas, reszponzív marketingweboldal a **Napsugár Könyvelés** könyvelőiroda számára.
+Egy-oldalas, reszponzív marketingweboldal **Nagy Napsugár** mérlegképes könyvelő számára.
 
 ## Technológia
 
@@ -19,17 +19,18 @@ styles.css   – Stíluslapok
 
 1. **Navbar** – rögzített fejléc, görgetésre megváltozó megjelenés
 2. **Hero** – bevezető szekció statisztikákkal és animált kártya-widgettel
-3. **Rólunk** – cégbemutató, értékek
+3. **Rólam** – személyes bemutatkozás és értékek
 4. **Szolgáltatások** – 6 szolgáltatáskártya (könyvelés, adótanácsadás, bérszámfejtés, stb.)
-5. **Csapat** – 6 munkatárs profilja részletes leírással
-6. **Miért mi?** – előnyök és kulcsstatisztikák
-7. **Kapcsolat** – elérhetőségek, nyitvatartás, kapcsolatfelvételi űrlap
-8. **Footer** – navigáció, linkek, jogi információk
+5. **Árlista** – havi csomagok és kiegészítő szolgáltatások
+6. **Bemutatkozás** – egyéni profil és szakmai fókusz
+7. **Miért engem?** – előnyök és kulcsstatisztikák
+8. **Kapcsolat** – elérhetőségek, nyitvatartás, kapcsolatfelvételi űrlap
+9. **Footer** – navigáció, linkek, jogi információk
 
 ## Helyi futtatás
 
 ```bash
-# Egyszerűen nyissa meg böngészőben:
+# Egyszerűen nyisd meg böngészőben:
 open index.html
 # vagy
 python3 -m http.server 8080
