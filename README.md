@@ -22,10 +22,9 @@ styles.css   – Stíluslapok
 3. **Rólam** – személyes bemutatkozás és értékek
 4. **Szolgáltatások** – 6 szolgáltatáskártya (könyvelés, adótanácsadás, bérszámfejtés, stb.)
 5. **Árlista** – havi csomagok és kiegészítő szolgáltatások
-6. **Bemutatkozás** – egyéni profil és szakmai fókusz
-7. **Miért engem?** – előnyök és kulcsstatisztikák
-8. **Kapcsolat** – elérhetőségek, nyitvatartás, kapcsolatfelvételi űrlap
-9. **Footer** – navigáció, linkek, jogi információk
+6. **Miért engem?** – előnyök és kulcsstatisztikák
+7. **Kapcsolat** – elérhetőségek, nyitvatartás, kapcsolatfelvételi űrlap
+8. **Footer** – navigáció, linkek, jogi információk
 
 ## Helyi futtatás
 
