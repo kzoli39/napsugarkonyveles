@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Napsugár Könyvelés – Megbízható könyvelési, adótanácsadási és bérszámfejtési szolgáltatások Budapest és környéke vállalkozásai számára." />
+  <title>Napsugár Könyvelés | Könyvelés · Adótanácsadás · Bérszámfejtés</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════ -->
+  <header id="navbar" role="banner">
+    <div class="container">
+      <nav class="nav-inner" aria-label="Főnavigáció">
+        <a href="#hero" class="nav-logo" aria-label="Napsugár Könyvelés – Főoldal">
+          <div class="logo-icon" aria-hidden="true">☀️</div>
+          <span>Napsugár Könyvelés</span>
+        </a>
+
+        <ul class="nav-links" id="nav-menu" role="list">
+          <li><a href="#about">Rólunk</a></li>
+          <li><a href="#services">Szolgáltatások</a></li>
+          <li><a href="#team">Csapat</a></li>
+          <li><a href="#why-us">Miért mi?</a></li>
+          <li><a href="#contact" class="nav-cta">Kapcsolat</a></li>
+        </ul>
+
+        <button class="burger" id="burger-btn" aria-label="Menü megnyitása" aria-expanded="false" aria-controls="nav-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <section id="hero" aria-label="Bevezető">
+    <div class="hero-bg-shapes" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="hero-text">
+          <p class="eyebrow">Könyvelés · Adótanácsadás · Bérszámfejtés</p>
+          <h1>
+            Pénzügyei <span>fényesek</span><br>
+            lesznek velünk
+          </h1>
+          <p>
+            A Napsugár Könyvelés megbízható partnere Budapest és környéke vállalkozásainak.
+            Pontos, határidős, személyre szabott pénzügyi megoldások – vállalkozóktól vállalkozóknak.
+          </p>
+
+          <div class="hero-btns">
+            <a href="#contact" class="btn-primary">
+              <span>Ingyenes konzultáció</span>
+              <span aria-hidden="true">→</span>
+            </a>
+            <a href="#services" class="btn-secondary">
+              <span>Szolgáltatásaink</span>
+              <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+
+          <div class="hero-stats" role="list" aria-label="Kulcsadatok">
+            <div class="stat-item" role="listitem">
+              <div class="stat-number">15+</div>
+              <div class="stat-label">Év tapasztalat</div>
+            </div>
+            <div class="stat-item" role="listitem">
+              <div class="stat-number">350+</div>
+              <div class="stat-label">Elégedett ügyfél</div>
+            </div>
+            <div class="stat-item" role="listitem">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Határidős teljesítés</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-card">
+            <div class="hero-card-header">
+              <div class="hc-icon">📊</div>
+              <div>
+                <div class="hc-title">Pénzügyi áttekintő</div>
+                <div class="hc-sub">2025 – Q1</div>
+              </div>
+            </div>
+            <div class="hc-items">
+              <div class="hc-item">
+                <div class="hc-item-dot" style="background:#F5A623"></div>
+                <span>Árbevétel</span>
+                <div class="hc-item-bar" style="width:70px"><div style="position:absolute;left:0;top:0;bottom:0;width:82%;background:#F5A623;border-radius:3px"></div></div>
+              </div>
+              <div class="hc-item">
+                <div class="hc-item-dot" style="background:#4ECDC4"></div>
+                <span>Kiadások</span>
+                <div class="hc-item-bar" style="width:70px"><div style="position:absolute;left:0;top:0;bottom:0;width:54%;background:#4ECDC4;border-radius:3px"></div></div>
+              </div>
+              <div class="hc-item">
+                <div class="hc-item-dot" style="background:#A8E6CF"></div>
+                <span>Adó</span>
+                <div class="hc-item-bar" style="width:70px"><div style="position:absolute;left:0;top:0;bottom:0;width:38%;background:#A8E6CF;border-radius:3px"></div></div>
+              </div>
+              <div class="hc-item">
+                <div class="hc-item-dot" style="background:#FFD93D"></div>
+                <span>Nyereség</span>
+                <div class="hc-item-bar" style="width:70px"><div style="position:absolute;left:0;top:0;bottom:0;width:67%;background:#FFD93D;border-radius:3px"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       ABOUT
+  ══════════════════════════════════════ -->
+  <section id="about" aria-labelledby="about-title">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-visual">
+          <div class="about-img-wrap" aria-hidden="true">
+            <div class="about-illustration">🏢</div>
+          </div>
+          <div class="about-badge" aria-label="15 éve a piacon">
+            <div class="badge-number">15</div>
+            <div class="badge-text">év a<br>piacon</div>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <span class="section-tag">Rólunk</span>
+          <h2 id="about-title" class="section-title">
+            Megbízható partner<br>a számok mögött
+          </h2>
+          <p>
+            A Napsugár Könyvelés 2010-ben alapult azzal a céllal, hogy kisebb és közepes méretű
+            vállalkozásoknak átlátható, megbízható és személyre szabott pénzügyi szolgáltatásokat
+            nyújtson. Irodánk Budapest XI. kerületében található, de ügyfeleinket az egész
+            Dunakanyar-Pest-Buda régióban kiszolgáljuk.
+          </p>
+          <p style="margin-top:1rem">
+            Csapatunk minden tagja legalább 10 éves szakmai tapasztalattal rendelkezik, folyamatosan
+            követik a hatályos adó- és számviteli jogszabályok változásait, így Ön mindig a legfrissebb,
+            legkorrektebb tanácsot kapja.
+          </p>
+
+          <div class="values" role="list" aria-label="Értékeink">
+            <div class="value-card" role="listitem">
+              <div class="value-icon" aria-hidden="true">🎯</div>
+              <h4>Pontosság</h4>
+              <p>Minden bevallás és határidő precízen, időben teljesítve.</p>
+            </div>
+            <div class="value-card" role="listitem">
+              <div class="value-icon" aria-hidden="true">🤝</div>
+              <h4>Bizalom</h4>
+              <p>Ügyfeleink 94%-a ajánlja szolgáltatásainkat tovább.</p>
+            </div>
+            <div class="value-card" role="listitem">
+              <div class="value-icon" aria-hidden="true">⚡</div>
+              <h4>Gyors reagálás</h4>
+              <p>Kérdéseire 24 órán belül mindig válaszolunk.</p>
+            </div>
+            <div class="value-card" role="listitem">
+              <div class="value-icon" aria-hidden="true">🔒</div>
+              <h4>Adatbiztonság</h4>
+              <p>GDPR-kompatibilis, titkosított adatkezelés.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SERVICES
+  ══════════════════════════════════════ -->
+  <section id="services" aria-labelledby="services-title">
+    <div class="container">
+      <div class="services-header">
+        <span class="section-tag">Szolgáltatásaink</span>
+        <h2 id="services-title" class="section-title">
+          Mindent egy kézből
+        </h2>
+        <p class="section-subtitle">
+          Átfogó pénzügyi és számviteli megoldások, amelyek leveszik a terhet a vállalkozó válláról,
+          hogy Ön az üzletére koncentrálhasson.
+        </p>
+      </div>
+
+      <div class="services-grid" role="list">
+
+        <article class="service-card" role="listitem">
+          <div class="service-icon" aria-hidden="true">📒</div>
+          <h3>Könyvelés</h3>
+          <p>Teljes körű főkönyvi és analitikus könyvelés, havi zárások, mérlegkészítés.</p>
+          <ul class="service-list" aria-label="Részletek">
+            <li>Főkönyvi könyvelés</li>
+            <li>Analitikus nyilvántartás</li>
+            <li>Havi zárás &amp; riportok</li>
+            <li>Éves mérleg és eredménykimutatás</li>
+          </ul>
+        </article>
+
+        <article class="service-card" role="listitem">
+          <div class="service-icon" aria-hidden="true">🧾</div>
+          <h3>Adótanácsadás &amp; bevallások</h3>
+          <p>ÁFA, SZJA, TAO és helyi adók bevallása, optimalizálási stratégiák.</p>
+          <ul class="service-list" aria-label="Részletek">
+            <li>ÁFA bevallás (havi/negyedéves)</li>
+            <li>Társasági adó (TAO)</li>
+            <li>SZJA és KATA tanácsadás</li>
+            <li>Adóoptimalizálási stratégiák</li>
+          </ul>
+        </article>
+
+        <article class="service-card" role="listitem">
+          <div class="service-icon" aria-hidden="true">💼</div>
+          <h3>Bérszámfejtés</h3>
+          <p>Pontos és határidős bérelszámolás, TB-elszámolás, KIRA nyilvántartás.</p>
+          <ul class="service-list" aria-label="Részletek">
+            <li>Bérszámfejtés &amp; elszámolás</li>
+            <li>TB és szociális hozzájárulás</li>
+            <li>Kilépési papírok, KIRA</li>
+            <li>Cafeteria adminisztráció</li>
+          </ul>
+        </article>
+
+        <article class="service-card" role="listitem">
+          <div class="service-icon" aria-hidden="true">🏦</div>
+          <h3>Pénzügyi tervezés</h3>
+          <p>Cash-flow tervezés, likviditás-menedzsment, üzleti terv készítés.</p>
+          <ul class="service-list" aria-label="Részletek">
+            <li>Éves pénzügyi tervezés</li>
+            <li>Cash-flow elemzés</li>
+            <li>Üzleti terv &amp; előrejelzés</li>
+            <li>Finanszírozási tanácsadás</li>
+          </ul>
+        </article>
+
+        <article class="service-card" role="listitem">
+          <div class="service-icon" aria-hidden="true">🏗️</div>
+          <h3>Cégalapítás</h3>
+          <p>Teljes körű segítség az ügyintézésben, hogy cége a lehető leggyorsabban elindulhasson.</p>
+          <ul class="service-list" aria-label="Részletek">
+            <li>Cégforma-választás tanácsadás</li>
+            <li>NAV és KSH bejelentések</li>
+            <li>Nyitómérleg elkészítése</li>
+            <li>Adószám igénylés</li>
+          </ul>
+        </article>
+
+        <article class="service-card" role="listitem">
+          <div class="service-icon" aria-hidden="true">📋</div>
+          <h3>Hatósági ügyek</h3>
+          <p>NAV ellenőrzések, hatósági levelek kezelése, képviselet adóhatóság előtt.</p>
+          <ul class="service-list" aria-label="Részletek">
+            <li>NAV vizsgálat &amp; ellenőrzés</li>
+            <li>Hatósági képviselet</li>
+            <li>Fellebbezés, jogorvoslat</li>
+            <li>Adóhiány megelőzése</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       TEAM
+  ══════════════════════════════════════ -->
+  <section id="team" aria-labelledby="team-title">
+    <div class="container">
+      <div class="team-header">
+        <span class="section-tag">Csapatunk</span>
+        <h2 id="team-title" class="section-title">
+          Szakértő kezekben az Ön pénzügye
+        </h2>
+        <p class="section-subtitle">
+          Tapasztalt könyvelők, adótanácsadók és bérszámfejtők, akik nap mint nap azért dolgoznak,
+          hogy Ön nyugodtan aludhasson.
+        </p>
+      </div>
+
+      <div class="team-grid" role="list">
+
+        <!-- Kovács Zoltán -->
+        <article class="team-card" role="listitem">
+          <div class="team-card-top" style="background: linear-gradient(135deg, #1B2A4A, #2D4270)">
+            <div class="team-avatar" aria-hidden="true">KZ</div>
+          </div>
+          <div class="team-card-body">
+            <h3>Kovács Zoltán</h3>
+            <p class="team-role">Ügyvezető · Mérlegképes könyvelő</p>
+            <p class="team-bio">
+              18 éves szakmai tapasztalat. Korábban BIG4 könyvelőirodánál dolgozott, 2010-ben
+              alapította a Napsugár Könyvelést. Specialitása a társasági adó és az összetett
+              holdingstruktúrák könyvelése.
+            </p>
+            <div class="team-tags" aria-label="Szakterületek">
+              <span class="tag">TAO</span>
+              <span class="tag">IFRS</span>
+              <span class="tag">Mérlegképes</span>
+            </div>
+            <div class="team-contact">
+              <a href="mailto:kovacs.zoltan@napsugarkonyveles.hu" aria-label="E-mail Kovács Zoltánnak">
+                <span aria-hidden="true">✉</span> kovacs.zoltan@napsugarkonyveles.hu
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Nagy Éva -->
+        <article class="team-card" role="listitem">
+          <div class="team-card-top" style="background: linear-gradient(135deg, #C06014, #F5A623)">
+            <div class="team-avatar" aria-hidden="true">NÉ</div>
+          </div>
+          <div class="team-card-body">
+            <h3>Nagy Éva</h3>
+            <p class="team-role">Vezető könyvelő · Adótanácsadó</p>
+            <p class="team-bio">
+              12 éve foglalkozik KKV-k könyvelésével. Kiváló kapcsolata van a NAV-val, sikeresen
+              képviselte ügyfeleit több adóellenőrzés során is. Különös figyelmet fordít a
+              KATA és KIVA vállalkozásokra.
+            </p>
+            <div class="team-tags" aria-label="Szakterületek">
+              <span class="tag">KATA / KIVA</span>
+              <span class="tag">ÁFA</span>
+              <span class="tag">KKV</span>
+            </div>
+            <div class="team-contact">
+              <a href="mailto:nagy.eva@napsugarkonyveles.hu" aria-label="E-mail Nagy Évának">
+                <span aria-hidden="true">✉</span> nagy.eva@napsugarkonyveles.hu
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Horváth Péter -->
+        <article class="team-card" role="listitem">
+          <div class="team-card-top" style="background: linear-gradient(135deg, #1A6B3A, #2ECC71)">
+            <div class="team-avatar" aria-hidden="true">HP</div>
+          </div>
+          <div class="team-card-body">
+            <h3>Horváth Péter</h3>
+            <p class="team-role">Bérszámfejtő · TB-ügyintéző</p>
+            <p class="team-bio">
+              10 éves tapasztalat a bérügyvitelben. Naprakész ismeretekkel rendelkezik a
+              munkajog, a TB-törvény és a cafeteria-rendszer területén. Ügyfelei körében
+              különösen kedvelt a gyors reagálása miatt.
+            </p>
+            <div class="team-tags" aria-label="Szakterületek">
+              <span class="tag">Bérszámfejtés</span>
+              <span class="tag">TB</span>
+              <span class="tag">Cafeteria</span>
+            </div>
+            <div class="team-contact">
+              <a href="mailto:horvath.peter@napsugarkonyveles.hu" aria-label="E-mail Horváth Péternek">
+                <span aria-hidden="true">✉</span> horvath.peter@napsugarkonyveles.hu
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Szabó Katalin -->
+        <article class="team-card" role="listitem">
+          <div class="team-card-top" style="background: linear-gradient(135deg, #6B21A8, #A855F7)">
+            <div class="team-avatar" aria-hidden="true">SzK</div>
+          </div>
+          <div class="team-card-body">
+            <h3>Szabó Katalin</h3>
+            <p class="team-role">Pénzügyi tanácsadó · Controlling</p>
+            <p class="team-bio">
+              Controllingi és pénzügyi tervezési specialista. MBA diplomájával és 8 éves
+              vállalati pénzügyi háttérrel segíti az ügyfelek stratégiai döntéshozatalát,
+              cash-flow tervezést és beruházás-elemzést.
+            </p>
+            <div class="team-tags" aria-label="Szakterületek">
+              <span class="tag">Controlling</span>
+              <span class="tag">Cash-flow</span>
+              <span class="tag">MBA</span>
+            </div>
+            <div class="team-contact">
+              <a href="mailto:szabo.katalin@napsugarkonyveles.hu" aria-label="E-mail Szabó Katalinnak">
+                <span aria-hidden="true">✉</span> szabo.katalin@napsugarkonyveles.hu
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Fekete András -->
+        <article class="team-card" role="listitem">
+          <div class="team-card-top" style="background: linear-gradient(135deg, #0E4C82, #3B82F6)">
+            <div class="team-avatar" aria-hidden="true">FA</div>
+          </div>
+          <div class="team-card-body">
+            <h3>Fekete András</h3>
+            <p class="team-role">Adójogi szakértő</p>
+            <p class="team-bio">
+              Jogi végzettséggel és 11 éves adójogi tapasztalattal rendelkezik. Hatékonyan
+              képviseli ügyfeleit NAV-ellenőrzéseknél, fellebbezési eljárásokban és
+              adóhiány-vitákban.
+            </p>
+            <div class="team-tags" aria-label="Szakterületek">
+              <span class="tag">Adójog</span>
+              <span class="tag">NAV képviselet</span>
+              <span class="tag">Jogorvoslat</span>
+            </div>
+            <div class="team-contact">
+              <a href="mailto:fekete.andras@napsugarkonyveles.hu" aria-label="E-mail Fekete Andrásnak">
+                <span aria-hidden="true">✉</span> fekete.andras@napsugarkonyveles.hu
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Molnár Ágnes -->
+        <article class="team-card" role="listitem">
+          <div class="team-card-top" style="background: linear-gradient(135deg, #8B1A1A, #E74C3C)">
+            <div class="team-avatar" aria-hidden="true">MÁ</div>
+          </div>
+          <div class="team-card-body">
+            <h3>Molnár Ágnes</h3>
+            <p class="team-role">Ügyfélszolgálat · Asszisztens könyvelő</p>
+            <p class="team-bio">
+              Az iroda arca és motorja. Ügyfélkommunikáció, határidő-nyilvántartás és
+              dokumentumkezelés területén 7 éves tapasztalattal rendelkezik. Ő az a személy,
+              akire mindig számíthat.
+            </p>
+            <div class="team-tags" aria-label="Szakterületek">
+              <span class="tag">Ügyfélszolgálat</span>
+              <span class="tag">Dokumentumkezelés</span>
+              <span class="tag">Adminisztráció</span>
+            </div>
+            <div class="team-contact">
+              <a href="mailto:molnar.agnes@napsugarkonyveles.hu" aria-label="E-mail Molnár Ágnesnek">
+                <span aria-hidden="true">✉</span> molnar.agnes@napsugarkonyveles.hu
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       WHY US
+  ══════════════════════════════════════ -->
+  <section id="why-us" aria-labelledby="why-title">
+    <div class="container">
+      <div class="why-grid">
+
+        <div class="why-text">
+          <span class="section-tag" style="color:var(--sun-yellow)">Miért mi?</span>
+          <h2 id="why-title" class="section-title">
+            Több mint könyvelés –<br>valódi partnerség
+          </h2>
+          <p class="section-subtitle">
+            Nem csupán számokat könyvelünk – az Ön vállalkozásának pénzügyi egészségére figyelünk,
+            proaktívan jelzünk minden kockázatot és lehetőséget.
+          </p>
+
+          <div class="why-points" role="list">
+            <div class="why-point" role="listitem">
+              <div class="why-point-icon" aria-hidden="true">🔔</div>
+              <div class="why-point-text">
+                <h4>Proaktív figyelmeztetések</h4>
+                <p>Határidők, jogszabályváltozások és adókockázatok előzetes jelzése.</p>
+              </div>
+            </div>
+            <div class="why-point" role="listitem">
+              <div class="why-point-icon" aria-hidden="true">💬</div>
+              <div class="why-point-text">
+                <h4>Dedikált ügyintéző</h4>
+                <p>Minden ügyfélnek saját kapcsolattartója van, akit személyesen ismer.</p>
+              </div>
+            </div>
+            <div class="why-point" role="listitem">
+              <div class="why-point-icon" aria-hidden="true">☁️</div>
+              <div class="why-point-text">
+                <h4>Modern, digitális munkavégzés</h4>
+                <p>Felhőalapú dokumentumkezelés, elektronikus aláírás, online meeting.</p>
+              </div>
+            </div>
+            <div class="why-point" role="listitem">
+              <div class="why-point-icon" aria-hidden="true">💰</div>
+              <div class="why-point-text">
+                <h4>Átlátható árazás</h4>
+                <p>Fix havi díjak, nincsenek rejtett költségek. Tudja, miért fizet.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="numbers-grid" role="list" aria-label="Statisztikák">
+          <div class="number-card" role="listitem">
+            <div class="number-value">350+</div>
+            <div class="number-label">Aktív ügyfél</div>
+          </div>
+          <div class="number-card" role="listitem">
+            <div class="number-value">15</div>
+            <div class="number-label">Év tapasztalat</div>
+          </div>
+          <div class="number-card" role="listitem">
+            <div class="number-value">6</div>
+            <div class="number-label">Szakértő munkatárs</div>
+          </div>
+          <div class="number-card" role="listitem">
+            <div class="number-value">0</div>
+            <div class="number-label">Késedelmes bevallás<br>az utóbbi 5 évben</div>
+          </div>
+          <div class="number-card" role="listitem">
+            <div class="number-value">94%</div>
+            <div class="number-label">Ügyfélelégedettség</div>
+          </div>
+          <div class="number-card" role="listitem">
+            <div class="number-value">24h</div>
+            <div class="number-label">Válaszidő garancia</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CONTACT
+  ══════════════════════════════════════ -->
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:3.5rem">
+        <span class="section-tag">Kapcsolat</span>
+        <h2 id="contact-title" class="section-title">
+          Kezdjük el együtt!
+        </h2>
+        <p class="section-subtitle" style="margin:0 auto">
+          Vegye fel velünk a kapcsolatot ingyenes, kötelezettség nélküli konzultációra,
+          és derítse ki, hogyan segíthetünk vállalkozásának.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+
+        <div>
+          <div class="contact-info" role="list" aria-label="Elérhetőségek">
+
+            <div class="contact-detail" role="listitem">
+              <div class="contact-icon" aria-hidden="true">📍</div>
+              <div class="contact-detail-text">
+                <h4>Cím</h4>
+                <p>1117 Budapest, Irinyi József u. 4–20.<br>I. em. 108.</p>
+              </div>
+            </div>
+
+            <div class="contact-detail" role="listitem">
+              <div class="contact-icon" aria-hidden="true">📞</div>
+              <div class="contact-detail-text">
+                <h4>Telefon</h4>
+                <a href="tel:+3612345678">+36 1 234 5678</a><br>
+                <a href="tel:+36301234567">+36 30 123 4567</a>
+              </div>
+            </div>
+
+            <div class="contact-detail" role="listitem">
+              <div class="contact-icon" aria-hidden="true">✉️</div>
+              <div class="contact-detail-text">
+                <h4>E-mail</h4>
+                <a href="mailto:info@napsugarkonyveles.hu">info@napsugarkonyveles.hu</a>
+              </div>
+            </div>
+
+            <div class="contact-detail" role="listitem">
+              <div class="contact-icon" aria-hidden="true">🏢</div>
+              <div class="contact-detail-text">
+                <h4>Cégjegyzékszám</h4>
+                <p>01-09-123456</p>
+              </div>
+            </div>
+
+            <div class="contact-detail" role="listitem">
+              <div class="contact-icon" aria-hidden="true">🔖</div>
+              <div class="contact-detail-text">
+                <h4>Adószám</h4>
+                <p>12345678-2-43</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="contact-hours" style="margin-top:1.8rem" aria-label="Nyitvatartás">
+            <h4>⏰ Nyitvatartás</h4>
+            <div class="hours-row"><span>Hétfő – Csütörtök</span><span>08:00 – 17:00</span></div>
+            <div class="hours-row"><span>Péntek</span><span>08:00 – 14:00</span></div>
+            <div class="hours-row"><span>Szombat – Vasárnap</span><span>Zárva</span></div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap">
+          <h3>Írjon nekünk</h3>
+          <p>Töltse ki az alábbi űrlapot, és hamarosan visszahívjuk!</p>
+
+          <form id="contact-form" novalidate aria-label="Kapcsolatfelvételi űrlap">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cf-name">Teljes név *</label>
+                <input type="text" id="cf-name" name="name" required placeholder="Pl. Tóth Gábor" autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <label for="cf-email">E-mail cím *</label>
+                <input type="email" id="cf-email" name="email" required placeholder="pelda@email.hu" autocomplete="email" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cf-phone">Telefonszám</label>
+                <input type="tel" id="cf-phone" name="phone" placeholder="+36 30 000 0000" autocomplete="tel" />
+              </div>
+              <div class="form-group">
+                <label for="cf-service">Érdeklődés tárgya</label>
+                <select id="cf-service" name="service">
+                  <option value="">– Válasszon –</option>
+                  <option>Könyvelés</option>
+                  <option>Adótanácsadás</option>
+                  <option>Bérszámfejtés</option>
+                  <option>Pénzügyi tervezés</option>
+                  <option>Cégalapítás</option>
+                  <option>Hatósági ügyek</option>
+                  <option>Egyéb</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="cf-message">Üzenet *</label>
+              <textarea id="cf-message" name="message" required placeholder="Röviden írja le, miben segíthetünk..."></textarea>
+            </div>
+
+            <button type="submit" class="form-submit">
+              <span>Üzenet küldése</span>
+              <span aria-hidden="true">✉</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="#hero" class="footer-logo" aria-label="Napsugár Könyvelés – Főoldal">
+            <div class="logo-icon" aria-hidden="true">☀️</div>
+            <span>Napsugár Könyvelés</span>
+          </a>
+          <p>
+            Megbízható pénzügyi és könyvelési szolgáltatások 2010 óta.
+            Irodánk Budapest XI. kerületében, ügyfeleinket az egész régióban kiszolgáljuk.
+          </p>
+          <div class="footer-socials" aria-label="Közösségi média">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigáció</h4>
+          <ul>
+            <li><a href="#about">Rólunk</a></li>
+            <li><a href="#services">Szolgáltatások</a></li>
+            <li><a href="#team">Csapat</a></li>
+            <li><a href="#why-us">Miért mi?</a></li>
+            <li><a href="#contact">Kapcsolat</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Szolgáltatások</h4>
+          <ul>
+            <li><a href="#services">Könyvelés</a></li>
+            <li><a href="#services">Adótanácsadás</a></li>
+            <li><a href="#services">Bérszámfejtés</a></li>
+            <li><a href="#services">Pénzügyi tervezés</a></li>
+            <li><a href="#services">Cégalapítás</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Elérhetőség</h4>
+          <ul>
+            <li><a href="tel:+3612345678">+36 1 234 5678</a></li>
+            <li><a href="mailto:info@napsugarkonyveles.hu">info@napsugarkonyveles.hu</a></li>
+            <li><a href="#contact">1117 Budapest,<br>Irinyi József u. 4–20.</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 Napsugár Könyvelés Kft. Minden jog fenntartva.</span>
+        <span>
+          <a href="#contact">Adatvédelmi tájékoztató</a>
+          &nbsp;·&nbsp;
+          <a href="#contact">ÁSZF</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll-to-top button -->
+  <button id="scroll-top" aria-label="Vissza az oldal tetejére" title="Vissza a tetejére">▲</button>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ══════════════════════════════════════
+       JAVASCRIPT
+  ══════════════════════════════════════ -->
+  <script>
+    /* ── Navbar scroll effect ── */
+    const navbar = document.getElementById('navbar');
+    const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+    const sections = document.querySelectorAll('section[id]');
+    const scrollTopBtn = document.getElementById('scroll-top');
+
+    function onScroll() {
+      const scrollY = window.scrollY;
+
+      // Scrolled class
+      if (scrollY > 60) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+
+      // Active nav link
+      let current = '';
+      sections.forEach(sec => {
+        if (scrollY >= sec.offsetTop - 100) {
+          current = sec.id;
+        }
+      });
+      navLinks.forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === '#' + current) {
+          a.classList.add('active');
+        }
+      });
+
+      // Scroll-to-top button
+      if (scrollY > 400) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /* ── Mobile burger menu ── */
+    const burgerBtn = document.getElementById('burger-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    burgerBtn.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('open');
+      burgerBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Close menu on link click
+    navMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        burgerBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* ── Contact form ── */
+    const form = document.getElementById('contact-form');
+    const toast = document.getElementById('toast');
+
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3500);
+    }
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const name    = form.elements['name'].value.trim();
+      const email   = form.elements['email'].value.trim();
+      const message = form.elements['message'].value.trim();
+
+      if (!name || !email || !message) {
+        showToast('⚠️ Kérjük töltse ki az összes kötelező mezőt!');
+        return;
+      }
+
+      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRe.test(email)) {
+        showToast('⚠️ Kérjük adjon meg érvényes e-mail címet!');
+        return;
+      }
+
+      /* In a real implementation, send to a backend here */
+      showToast('✅ Üzenetét megkaptuk! Hamarosan felvesszük Önnel a kapcsolatot.');
+      form.reset();
+    });
+
+    /* ── Intersection Observer – fade-in animation ── */
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll(
+      '.service-card, .team-card, .value-card, .number-card, .why-point'
+    ).forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      io.observe(el);
+    });
+  </script>
+
+</body>
+</html>
