@@ -4,11 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Napsugár Könyvelőiroda mérlegképes könyvelőként segít átlátható, pontos és személyes könyvelési megoldásokkal egyéni vállalkozóknak és kisvállalkozásoknak." />
-  <title>Napsugár Könyvelőiroda</title>
+  <link rel="canonical" href="https://www.napsugarkonyveles.hu/" />
+  <meta property="og:locale" content="hu_HU" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Napsugár Könyvelőiroda" />
+  <meta property="og:title" content="Napsugár Könyvelőiroda | Online könyvelés vállalkozóknak országszerte" />
+  <meta property="og:description" content="Napsugár Könyvelőiroda jogi dokumentumai: Impresszum, Általános Szerződési Feltételek és Adatvédelmi tájékoztató." />
+  <meta property="og:url" content="https://www.napsugarkonyveles.hu/" />
+  <meta property="og:image" content="https://www.napsugarkonyveles.hu/images/logo.webp" />
+  <meta property="og:image:alt" content="Napsugár Könyvelőiroda logó" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Napsugár Könyvelőiroda | Jogi dokumentumok" />
+  <meta name="twitter:description" content="Napsugár Könyvelőiroda jogi dokumentumai: Impresszum, Általános Szerződési Feltételek és Adatvédelmi tájékoztató." />
+  <meta name="twitter:image" content="https://www.napsugarkonyveles.hu/images/logo.webp" />
+  <title>Napsugár Könyvelőiroda | Online könyvelés vállalkozóknak országszerte</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/png" href="images/logo2.png" />
+  <link rel="icon" type="image/webp" href="images/logo2.webp" />
 </head>
 <body>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AccountingService",
+    "name": "Napsugár Könyvelőiroda",
+    "url": "https://napsugarkonyveles.hu",
+    "telephone": "+36306478646",
+    "email": "napsugarkonyveles@gmail.com",
+    "description": "Online könyvelés egyéni vállalkozók és cégek számára országszerte.",
+    "areaServed": "Hungary"
+  }
+  </script>
 
   <!-- ══════════════════════════════════════
        NAVBAR
@@ -18,7 +43,7 @@
       <nav class="nav-inner" aria-label="Főnavigáció">
         <a href="#hero" class="nav-logo" aria-label="Napsugár Könyvelőiroda – Főoldal">
           <span class="logo-icon" aria-hidden="true">
-            <img src="images/logo2.png" alt="" class="logo-image" />
+            <img src="images/logo2.webp" alt="" class="logo-image" />
           </span>
           <span>Napsugár Könyvelőiroda</span>
         </a>
@@ -129,7 +154,7 @@
         <div class="about-visual">
           <div class="about-img-wrap" aria-hidden="true">
             <img
-              src="images/biz.jpg"
+              src="images/biz.webp"
               alt="Nagy Napsugár mérlegképes könyvelő portréja"
               class="about-photo"
             />
@@ -606,7 +631,7 @@
               <div class="contact-icon" aria-hidden="true">✉️</div>
               <div class="contact-detail-text">
                 <h4>E-mail</h4>
-                <a href="mailto:napsugarkonyveles@gmail.com">napsugarkonyveles@gmail.com</a>
+                <a href="mailto:info@napsugarkonyveles.hu">info@napsugarkonyveles.hu</a>
               </div>
             </div>
 
@@ -638,10 +663,14 @@
         </div>
 
         <div class="contact-form-wrap">
-          <h3>Írj nekem</h3>
-          <p>Töltsd ki az űrlapot, és 4 órán belül visszajelzek neked.</p>
+          <h3 id="contact-form-title">Írj nekem</h3>
+          <p id="contact-form-lead">Töltsd ki az űrlapot, és 4 órán belül visszajelzek neked.</p>
 
-          <form id="contact-form" novalidate aria-label="Kapcsolatfelvételi űrlap">
+          <form id="contact-form" method="POST" action="https://formsubmit.co/info@napsugarkonyveles.hu" novalidate aria-label="Kapcsolatfelvételi űrlap">
+            <input type="hidden" name="_subject" value="Uj uzenet a napsugarkonyveles.hu oldalrol" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" />
             <div class="form-row">
               <div class="form-group">
                 <label for="cf-name">Teljes név *</label>
@@ -685,6 +714,15 @@
               <span aria-hidden="true">✉</span>
             </button>
           </form>
+
+          <div id="contact-success" class="contact-success" hidden>
+            <div class="contact-success-icon" aria-hidden="true">✓</div>
+            <h4>Köszönöm az üzeneted!</h4>
+            <p>
+              Sikeresen megérkezett a megkeresésed. Hamarosan jelentkezem a megadott elérhetőségeden.
+            </p>
+            <button type="button" id="contact-new-message" class="contact-secondary-btn">Új üzenetet írok</button>
+          </div>
         </div>
 
       </div>
@@ -701,7 +739,7 @@
         <div class="footer-brand">
           <a href="#hero" class="footer-logo" aria-label="Nagy Napsugár – Főoldal">
             <span class="logo-icon" aria-hidden="true">
-              <img src="images/logo2.png" alt="" class="logo-image" />
+              <img src="images/logo2.webp" alt="" class="logo-image" />
             </span>
             <span>Napsugár Könyvelőiroda</span>
           </a>
@@ -758,7 +796,7 @@
           <h4>Elérhetőség</h4>
           <ul>
             <li><a href="tel:+36306478646">+36 30 647 8646</a></li>
-            <li><a href="mailto:napsugarkonyveles@gmail.com">napsugarkonyveles@gmail.com</a></li>
+            <li><a href="mailto:info@napsugarkonyveles.hu">info@napsugarkonyveles.hu</a></li>
           </ul>
         </div>
 
@@ -850,6 +888,19 @@
     /* ── Contact form ── */
     const form = document.getElementById('contact-form');
     const toast = document.getElementById('toast');
+    const formLead = document.getElementById('contact-form-lead');
+    const successPanel = document.getElementById('contact-success');
+    const newMessageBtn = document.getElementById('contact-new-message');
+
+    function toggleContactFormSuccess(isSuccess) {
+      form.hidden = isSuccess;
+      formLead.hidden = isSuccess;
+      successPanel.hidden = !isSuccess;
+
+      if (isSuccess) {
+        newMessageBtn.focus();
+      }
+    }
 
     function showToast(msg) {
       toast.textContent = msg;
@@ -857,11 +908,12 @@
       setTimeout(() => toast.classList.remove('show'), 3500);
     }
 
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async e => {
       e.preventDefault();
       const name    = form.elements['name'].value.trim();
       const email   = form.elements['email'].value.trim();
       const message = form.elements['message'].value.trim();
+      const submitButton = form.querySelector('button[type="submit"]');
 
       if (!name || !email || !message) {
         showToast('⚠️ Kérlek töltsd ki az összes kötelező mezőt!');
@@ -874,9 +926,40 @@
         return;
       }
 
-      /* In a real implementation, send to a backend here */
-      showToast('✅ Megkaptam az üzenetedet, hamarosan jelentkezem.');
-      form.reset();
+      const formData = new FormData(form);
+
+      submitButton.disabled = true;
+      submitButton.setAttribute('aria-busy', 'true');
+      showToast('Küldés folyamatban...');
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/info@napsugarkonyveles.hu', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json'
+          },
+          body: formData
+        });
+
+        const result = await response.json();
+        if (!response.ok || String(result.success) !== 'true') {
+          throw new Error('Sikertelen kuldes');
+        }
+
+        showToast('✅ Megkaptam az üzenetedet, hamarosan jelentkezem.');
+        form.reset();
+        toggleContactFormSuccess(true);
+      } catch (error) {
+        showToast('⚠️ Az üzenet küldése nem sikerült. Kérlek próbáld újra, vagy írj e-mailt.');
+      } finally {
+        submitButton.disabled = false;
+        submitButton.removeAttribute('aria-busy');
+      }
+    });
+
+    newMessageBtn.addEventListener('click', () => {
+      toggleContactFormSuccess(false);
+      form.elements['name'].focus();
     });
 
     /* ── Intersection Observer – fade-in animation ── */

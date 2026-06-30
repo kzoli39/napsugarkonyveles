@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /google-apps-script/
+
+Sitemap: https://www.napsugarkonyveles.hu/sitemap.xml
