@@ -670,6 +670,7 @@
             <input type="hidden" name="_subject" value="Uj uzenet a napsugarkonyveles.hu oldalrol" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="https://www.napsugarkonyveles.hu/?sent=1#contact" />
             <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" />
             <div class="form-row">
               <div class="form-group">
@@ -908,6 +909,18 @@
       setTimeout(() => toast.classList.remove('show'), 3500);
     }
 
+    function submitWithClassicPost() {
+      setTimeout(() => {
+        HTMLFormElement.prototype.submit.call(form);
+      }, 450);
+    }
+
+    // If FormSubmit redirected back with sent=1 after classic POST, show success state.
+    if (window.location.search.includes('sent=1')) {
+      toggleContactFormSuccess(true);
+      showToast('✅ Megkaptam az üzenetedet, hamarosan jelentkezem.');
+    }
+
     form.addEventListener('submit', async e => {
       e.preventDefault();
       const name    = form.elements['name'].value.trim();
@@ -933,7 +946,7 @@
       showToast('Küldés folyamatban...');
 
       try {
-        const response = await fetch('https://formsubmit.co/ajax/info@napsugarkonyveles.hu', {
+        const response = await fetch('https://formsubmit.co/ajax/napsugarkonyveles@gmail.com', {
           method: 'POST',
           headers: {
             Accept: 'application/json'
@@ -941,16 +954,20 @@
           body: formData
         });
 
-        const result = await response.json();
-        if (!response.ok || String(result.success) !== 'true') {
-          throw new Error('Sikertelen kuldes');
+        const result = await response.json().catch(() => ({}));
+        const isSuccess = response.ok && (result.success === true || String(result.success) === 'true');
+
+        if (!isSuccess) {
+          const apiMessage = (result && (result.message || result.error)) ? String(result.message || result.error) : '';
+          throw new Error(apiMessage || 'Sikertelen kuldes');
         }
 
         showToast('✅ Megkaptam az üzenetedet, hamarosan jelentkezem.');
         form.reset();
         toggleContactFormSuccess(true);
       } catch (error) {
-        showToast('⚠️ Az üzenet küldése nem sikerült. Kérlek próbáld újra, vagy írj e-mailt.');
+        // Silent fallback so users do not see technical provider-specific messages.
+        submitWithClassicPost();
       } finally {
         submitButton.disabled = false;
         submitButton.removeAttribute('aria-busy');
