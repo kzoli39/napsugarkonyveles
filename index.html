@@ -19,7 +19,7 @@
   <meta name="twitter:image" content="https://www.napsugarkonyveles.hu/images/logo.webp" />
   <title>Napsugár Könyvelőiroda | Online könyvelés vállalkozóknak országszerte</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/png" href="images/logo2.png" />
+  <link rel="icon" type="image/webp" href="images/logo2.webp" />
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -54,7 +54,7 @@
       <nav class="nav-inner" aria-label="Főnavigáció">
         <a href="#hero" class="nav-logo" aria-label="Napsugár Könyvelőiroda – Főoldal">
           <span class="logo-icon" aria-hidden="true">
-            <img src="images/logo2.png" alt="" class="logo-image" />
+            <img src="images/logo2.webp" alt="" class="logo-image" />
           </span>
           <span>Napsugár Könyvelőiroda</span>
         </a>
@@ -165,7 +165,7 @@
         <div class="about-visual">
           <div class="about-img-wrap" aria-hidden="true">
             <img
-              src="images/biz.jpg"
+              src="images/biz.webp"
               alt="Nagy Napsugár mérlegképes könyvelő portréja"
               class="about-photo"
             />
@@ -674,10 +674,15 @@
         </div>
 
         <div class="contact-form-wrap">
-          <h3>Írj nekem</h3>
-          <p>Töltsd ki az űrlapot, és 4 órán belül visszajelzek neked.</p>
+          <h3 id="contact-form-title">Írj nekem</h3>
+          <p id="contact-form-lead">Töltsd ki az űrlapot, és 4 órán belül visszajelzek neked.</p>
 
-          <form id="contact-form" novalidate aria-label="Kapcsolatfelvételi űrlap">
+          <form id="contact-form" method="POST" action="https://formsubmit.co/info@napsugarkonyveles.hu" novalidate aria-label="Kapcsolatfelvételi űrlap">
+            <input type="hidden" name="_subject" value="Uj uzenet a napsugarkonyveles.hu oldalrol" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="https://www.napsugarkonyveles.hu/?sent=1#contact" />
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" />
             <div class="form-row">
               <div class="form-group">
                 <label for="cf-name">Teljes név *</label>
@@ -721,6 +726,15 @@
               <span aria-hidden="true">✉</span>
             </button>
           </form>
+
+          <div id="contact-success" class="contact-success" hidden>
+            <div class="contact-success-icon" aria-hidden="true">✓</div>
+            <h4>Köszönöm az üzeneted!</h4>
+            <p>
+              Sikeresen megérkezett a megkeresésed. Hamarosan jelentkezem a megadott elérhetőségeden.
+            </p>
+            <button type="button" id="contact-new-message" class="contact-secondary-btn">Új üzenetet írok</button>
+          </div>
         </div>
 
       </div>
@@ -737,7 +751,7 @@
         <div class="footer-brand">
           <a href="#hero" class="footer-logo" aria-label="Nagy Napsugár – Főoldal">
             <span class="logo-icon" aria-hidden="true">
-              <img src="images/logo2.png" alt="" class="logo-image" />
+              <img src="images/logo2.webp" alt="" class="logo-image" />
             </span>
             <span>Napsugár Könyvelőiroda</span>
           </a>
@@ -886,6 +900,19 @@
     /* ── Contact form ── */
     const form = document.getElementById('contact-form');
     const toast = document.getElementById('toast');
+    const formLead = document.getElementById('contact-form-lead');
+    const successPanel = document.getElementById('contact-success');
+    const newMessageBtn = document.getElementById('contact-new-message');
+
+    function toggleContactFormSuccess(isSuccess) {
+      form.hidden = isSuccess;
+      formLead.hidden = isSuccess;
+      successPanel.hidden = !isSuccess;
+
+      if (isSuccess) {
+        newMessageBtn.focus();
+      }
+    }
 
     function showToast(msg) {
       toast.textContent = msg;
@@ -893,11 +920,24 @@
       setTimeout(() => toast.classList.remove('show'), 3500);
     }
 
-    form.addEventListener('submit', e => {
+    function submitWithClassicPost() {
+      setTimeout(() => {
+        HTMLFormElement.prototype.submit.call(form);
+      }, 450);
+    }
+
+    // If FormSubmit redirected back with sent=1 after classic POST, show success state.
+    if (window.location.search.includes('sent=1')) {
+      toggleContactFormSuccess(true);
+      showToast('✅ Megkaptam az üzenetedet, hamarosan jelentkezem.');
+    }
+
+    form.addEventListener('submit', async e => {
       e.preventDefault();
       const name    = form.elements['name'].value.trim();
       const email   = form.elements['email'].value.trim();
       const message = form.elements['message'].value.trim();
+      const submitButton = form.querySelector('button[type="submit"]');
 
       if (!name || !email || !message) {
         showToast('⚠️ Kérlek töltsd ki az összes kötelező mezőt!');
@@ -910,9 +950,44 @@
         return;
       }
 
-      /* In a real implementation, send to a backend here */
-      showToast('✅ Megkaptam az üzenetedet, hamarosan jelentkezem.');
-      form.reset();
+      const formData = new FormData(form);
+
+      submitButton.disabled = true;
+      submitButton.setAttribute('aria-busy', 'true');
+      showToast('Küldés folyamatban...');
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/napsugarkonyveles@gmail.com', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json'
+          },
+          body: formData
+        });
+
+        const result = await response.json().catch(() => ({}));
+        const isSuccess = response.ok && (result.success === true || String(result.success) === 'true');
+
+        if (!isSuccess) {
+          const apiMessage = (result && (result.message || result.error)) ? String(result.message || result.error) : '';
+          throw new Error(apiMessage || 'Sikertelen kuldes');
+        }
+
+        showToast('✅ Megkaptam az üzenetedet, hamarosan jelentkezem.');
+        form.reset();
+        toggleContactFormSuccess(true);
+      } catch (error) {
+        // Silent fallback so users do not see technical provider-specific messages.
+        submitWithClassicPost();
+      } finally {
+        submitButton.disabled = false;
+        submitButton.removeAttribute('aria-busy');
+      }
+    });
+
+    newMessageBtn.addEventListener('click', () => {
+      toggleContactFormSuccess(false);
+      form.elements['name'].focus();
     });
 
     /* ── Intersection Observer – fade-in animation ── */
