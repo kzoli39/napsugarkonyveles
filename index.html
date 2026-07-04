@@ -20,17 +20,44 @@
   <title>Napsugár Könyvelőiroda | Online könyvelés vállalkozóknak országszerte</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/webp" href="images/logo2.webp" />
-</head>
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2GHGECC3P"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-W2GHGECC3P');
+  </script>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W2GHGECC3P"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Meta Pixel -->
+  <script>
+    window.META_PIXEL_ID = '1556938716058482';
 
-  gtag('config', 'G-W2GHGECC3P');
+    if (window.META_PIXEL_ID) {
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+
+      fbq('init', window.META_PIXEL_ID);
+      fbq('track', 'PageView');
+    }
+  </script>
+
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xh7xiqjoov");
 </script>
+</head>
 
 <body>
   <script type="application/ld+json">
@@ -266,7 +293,7 @@
           <h3>Bérszámfejtés</h3>
           <p>Pontos bérszámfejtés és kapcsolódó ügyintézés, hogy a foglalkoztatással kapcsolatos feladatok is rendben legyenek.</p>
           <ul class="service-list" aria-label="Részletek">
-            <li>Bérszámfejtés éselszámolás</li>
+            <li>Bérszámfejtés és elszámolás</li>
             <li>TB ügyintézés</li>
             <li>Táppénz ügyintézése</li>
             <li>Belépő és kilépő adminisztráció</li>
@@ -288,7 +315,7 @@
         <article class="service-card" role="listitem">
           <div class="service-icon" aria-hidden="true">🧭</div>
           <h3>Cégalapítás</h3>
-          <p>Segítek az induláshoz szükséges első lépések és ügyintézések áttekintésében</p>
+          <p>Segítek az induláshoz szükséges első lépések és ügyintézések áttekintésében.</p>
           <ul class="service-list" aria-label="Részletek">
             <li>Cégforma kiválasztásának támogatása</li>
             <li>Induláshoz kapcsolódó ügyintézés</li>
@@ -682,7 +709,7 @@
               <div class="contact-icon" aria-hidden="true">🕒</div>
               <div class="contact-detail-text">
                 <h4>Elérhetőség</h4>
-                <p>Hétfőtől péntekig, gyors, 2 órán belüli válasszal</p>
+                <p>Hétfőtől péntekig, gyors, akár 2 órán belüli válaszadással</p>
               </div>
             </div>
 
@@ -724,13 +751,13 @@
                 <label for="cf-service">Érdeklődés tárgya *</label>
                 <select id="cf-service" required name="service">
                   <option value="">– Válasszon –</option>
-                  <option>Könyvelés-egyéni vállalkozásoknak</option>
-                  <option>Könyvelés-társas vállalkozásoknak</option>
+                  <option>Könyvelés egyéni vállalkozásoknak</option>
+                  <option>Könyvelés társas vállalkozásoknak</option>
                   <option>Adózási konzultáció</option>
                   <option>SZJA bevallás</option>
                   <option>Bérszámfejtés</option>
                   <option>Könyvelőváltás</option>
-                  <option>Cég vagy egyéni vállalkozás alapítás</option>
+                  <option>Cég vagy egyéni vállalkozás alapítása</option>
                   <option>Hatósági ügyintézés</option>
                   <option>Egyéb</option>
                 </select>
@@ -743,7 +770,7 @@
             </div>
 
             <div class="turnstile-wrap" id="turnstile-wrap" data-sitekey="0x4AAAAAADvigiuC7Co5d2dk">
-              <p id="turnstile-help">Spam védelem aktív. Ha nem látod az ellenőrzőt, az üzenet akkor is elküldhető.</p>
+              <p id="turnstile-help">Spamvédelem aktív. Ha nem látod az ellenőrzőt, az üzenet akkor is elküldhető.</p>
               <div id="turnstile-widget"></div>
             </div>
 
@@ -1067,6 +1094,15 @@
       setTimeout(() => toast.classList.remove('show'), 3500);
     }
 
+    function trackLeadEvent() {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead');
+      }
+      if (typeof window.fbq === 'function') {
+        window.fbq('track', 'Lead');
+      }
+    }
+
     async function loadTurnstile(siteKey) {
       if (!siteKey) {
         turnstileWrap.hidden = true;
@@ -1123,7 +1159,7 @@
       if (!response.ok || result.success !== true) {
         const errorMessage = (result && (result.error || result.message))
           ? String(result.error || result.message)
-          : 'Nem sikerult elkuldeni az uzenetet.';
+          : 'Nem sikerült elküldeni az üzenetet.';
         throw new Error(errorMessage);
       }
 
@@ -1131,7 +1167,7 @@
     }
 
     loadTurnstile(turnstileWrap.dataset.sitekey || '').catch(() => {
-      turnstileHelp.textContent = 'A spam vedelmi modul most nem toltott be. Az uzenetkuldes ettol fuggetlenul mukodik.';
+      turnstileHelp.textContent = 'A spamvédelmi modul most nem töltött be. Az üzenetküldés ettől függetlenül működik.';
       turnstileResponseInput.value = '';
     });
 
@@ -1184,6 +1220,7 @@
 
       try {
         await submitContactForm(payload);
+        trackLeadEvent();
 
         showToast('✅ Megkaptam az üzenetedet, hamarosan jelentkezem.');
         form.reset();

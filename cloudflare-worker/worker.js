@@ -66,7 +66,7 @@ async function parseIncomingPayload(request) {
     return Object.fromEntries(formData.entries());
   }
 
-  throw new AppError('Unsupported content type', 415);
+  throw new AppError('Nem támogatott tartalomtípus.', 415);
 }
 
 async function verifyTurnstile(token, remoteIp, env) {
@@ -104,7 +104,7 @@ async function verifyTurnstile(token, remoteIp, env) {
 
 async function sendEmail(payload, env) {
   if (!env.RESEND_API_KEY || !env.FROM_EMAIL || !env.TO_EMAIL) {
-    throw new AppError('Hianyzik az email beallitas (RESEND_API_KEY, FROM_EMAIL vagy TO_EMAIL).', 500);
+    throw new AppError('Hiányzik az e-mail-beállítás (RESEND_API_KEY, FROM_EMAIL vagy TO_EMAIL).', 500);
   }
 
   const emailBody = [
@@ -138,7 +138,7 @@ async function sendEmail(payload, env) {
       status: resendResponse.status,
       body: errorText
     });
-    throw new AppError('Email kuldes sikertelen. Ellenorizd a RESEND_API_KEY kulcsot es a felado email domain hitelesiteset a Resendben.', 502);
+    throw new AppError('Az e-mail küldése sikertelen. Ellenőrizd a RESEND_API_KEY kulcsot és a feladó e-mail-domain hitelesítését a Resendben.', 502);
   }
 }
 
@@ -156,16 +156,16 @@ function validatePayload(input) {
   };
 
   if (!payload.name || !payload.email || !payload.service || !payload.message) {
-    throw new AppError('Missing required fields', 400);
+    throw new AppError('Hiányzó kötelező mezők.', 400);
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(payload.email)) {
-    throw new AppError('Invalid email', 400);
+    throw new AppError('Érvénytelen e-mail-cím.', 400);
   }
 
   if (payload.message.length < 8) {
-    throw new AppError('Message too short', 400);
+    throw new AppError('Az üzenet túl rövid.', 400);
   }
 
   return payload;
@@ -186,11 +186,11 @@ export default {
     const url = new URL(request.url);
     const isContactPath = url.pathname === '/contact' || url.pathname === '/';
     if (!isContactPath) {
-      return json({ success: false, error: 'Not found' }, 404, corsHeaders);
+      return json({ success: false, error: 'Nem található.' }, 404, corsHeaders);
     }
 
     if (request.method !== 'POST') {
-      return json({ success: false, error: 'Method not allowed' }, 405, corsHeaders);
+      return json({ success: false, error: 'A metódus nem engedélyezett.' }, 405, corsHeaders);
     }
 
     try {
@@ -206,7 +206,7 @@ export default {
       const isTurnstileValid = await verifyTurnstile(payload.turnstileToken, remoteIp, env);
 
       if (!isTurnstileValid) {
-        return json({ success: false, error: 'Captcha failed' }, 400, corsHeaders);
+        return json({ success: false, error: 'A captcha ellenőrzése sikertelen.' }, 400, corsHeaders);
       }
 
       await sendEmail(payload, env);
@@ -224,7 +224,7 @@ export default {
       return json(
         {
           success: false,
-          error: isServerError ? 'Server error' : String(error.message || 'Bad request'),
+          error: isServerError ? 'Szerverhiba.' : String(error.message || 'Hibás kérés.'),
           details: env.NODE_ENV === 'development' ? String(error.message || error) : undefined
         },
         status,
