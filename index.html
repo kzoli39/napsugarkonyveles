@@ -710,7 +710,13 @@
               <div class="contact-icon" aria-hidden="true">📞</div>
               <div class="contact-detail-text">
                 <h4>Telefon</h4>
-                <a href="tel:+36306478646">+36 30 647 8646</a>
+                <a
+                  href="#"
+                  class="js-protected-contact"
+                  data-contact-type="phone"
+                  data-contact-token="KzM2MzA2NDc4NjQ2"
+                  data-contact-label-token="KzM2IDMwIDY0NyA4NjQ2"
+                >Telefonszám betöltése...</a>
               </div>
             </div>
 
@@ -718,7 +724,12 @@
               <div class="contact-icon" aria-hidden="true">✉️</div>
               <div class="contact-detail-text">
                 <h4>E-mail</h4>
-                <a href="mailto:info@napsugarkonyveles.hu">info@napsugarkonyveles.hu</a>
+                <a
+                  href="#"
+                  class="js-protected-contact"
+                  data-contact-type="email"
+                  data-contact-token="aW5mb0BuYXBzdWdhcmtvbnl2ZWxlcy5odQ=="
+                >E-mail-cím betöltése...</a>
               </div>
             </div>
 
@@ -885,8 +896,23 @@
         <div class="footer-col">
           <h4>Elérhetőség</h4>
           <ul>
-            <li><a href="tel:+36306478646">+36 30 647 8646</a></li>
-            <li><a href="mailto:info@napsugarkonyveles.hu">info@napsugarkonyveles.hu</a></li>
+            <li>
+              <a
+                href="#"
+                class="js-protected-contact"
+                data-contact-type="phone"
+                data-contact-token="KzM2MzA2NDc4NjQ2"
+                data-contact-label-token="KzM2IDMwIDY0NyA4NjQ2"
+              >Telefonszám betöltése...</a>
+            </li>
+            <li>
+              <a
+                href="#"
+                class="js-protected-contact"
+                data-contact-type="email"
+                data-contact-token="aW5mb0BuYXBzdWdhcmtvbnl2ZWxlcy5odQ=="
+              >E-mail-cím betöltése...</a>
+            </li>
           </ul>
         </div>
 
@@ -938,6 +964,43 @@
     const cookieAcceptBtn = document.getElementById('cookie-accept');
     const cookieRejectBtn = document.getElementById('cookie-reject');
     const cookieSettingsLink = document.getElementById('cookie-settings-link');
+
+    function decodeContactToken(token) {
+      if (!token) {
+        return '';
+      }
+
+      try {
+        return window.atob(token);
+      } catch (error) {
+        return '';
+      }
+    }
+
+    function hydrateProtectedContacts() {
+      document.querySelectorAll('.js-protected-contact').forEach(link => {
+        const type = (link.dataset.contactType || '').toLowerCase();
+        const value = decodeContactToken(link.dataset.contactToken || '');
+        const label = decodeContactToken(link.dataset.contactLabelToken || '');
+
+        if (!value) {
+          return;
+        }
+
+        link.textContent = label || value;
+
+        if (type === 'phone') {
+          link.href = `tel:${value}`;
+          return;
+        }
+
+        if (type === 'email') {
+          link.href = `mailto:${value}`;
+        }
+      });
+    }
+
+    hydrateProtectedContacts();
 
     function getCookieConsentValue() {
       try {
@@ -1345,7 +1408,8 @@
         toggleContactFormSuccess(true);
       } catch (error) {
         const backendMessage = error && error.message ? String(error.message) : '';
-        const fallbackMessage = 'Most nem sikerült elküldeni. Kérlek írj az info@napsugarkonyveles.hu címre vagy hívj telefonon.';
+        const fallbackEmail = decodeContactToken('aW5mb0BuYXBzdWdhcmtvbnl2ZWxlcy5odQ==') || 'info [kukac] napsugarkonyveles [pont] hu';
+        const fallbackMessage = `Most nem sikerült elküldeni. Kérlek írj a(z) ${fallbackEmail} címre vagy hívj telefonon.`;
         showToast(`⚠️ ${backendMessage || fallbackMessage}`);
       } finally {
         submitButton.disabled = false;
