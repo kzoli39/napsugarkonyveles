@@ -21,6 +21,17 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/webp" href="images/logo2.webp" />
 </head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W2GHGECC3P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W2GHGECC3P');
+</script>
+
 <body>
   <script type="application/ld+json">
   {
@@ -299,6 +310,9 @@
         </article>
 
       </div>
+      <div class="contact-process-actions">
+        <a href="#contact" class="btn-primary">Egyeztessünk</a>
+      </div>
     </div>
   </section>
 
@@ -428,80 +442,101 @@
         </p>
       </div>
 
-      <div class="pricing-scroll" aria-label="Árlista görgethető nézetben">
-        <div class="pricing-grid" role="list">
-          <article class="price-card" role="listitem">
-          <p class="price-kicker">Havi csomag</p>
-          <h3>Egyéni vállalkozók könyvelése</h3>
-          <p class="price-value">15 000 Ft<span>/hó-tól</span></p>
+      <div class="pricing-compact" role="list" aria-label="Árlista csomagok">
+        <details class="price-item" role="listitem">
+          <summary>
+            <div>
+              <p class="price-kicker">Havi csomag</p>
+              <h3>Egyéni vállalkozók könyvelése</h3>
+            </div>
+            <p class="price-value">15 000 Ft<span>/hó-tól</span></p>
+          </summary>
           <ul class="price-list" aria-label="Egyéni vállalkozói csomag részletei">
             <li>NAV-képviselet és ügyintézés</li>
             <li>Adószámla és tárhely értesítések figyelése</li>
             <li>Közvetlen kapcsolattartás és gyors válaszadás</li>
             <li>Határidők folyamatos nyomon követése</li>
           </ul>
-          </article>
+        </details>
 
-          <article class="price-card" role="listitem">
-          <p class="price-kicker">Havi csomag</p>
-          <h3>Társaságok könyvelése (Kft, Bt)</h3>
-          <p class="price-value">35 000 Ft<span>/hó-tól</span></p>
+        <details class="price-item" role="listitem">
+          <summary>
+            <div>
+              <p class="price-kicker">Havi csomag</p>
+              <h3>Társaságok könyvelése (Kft, Bt)</h3>
+            </div>
+            <p class="price-value">35 000 Ft<span>/hó-tól</span></p>
+          </summary>
           <ul class="price-list" aria-label="Kisvállalkozói csomag részletei">
             <li>Teljes körű könyvelés és bevallások</li>
             <li>Rendszeres kapcsolattartás</li>
             <li>Adófizetési értesítés időben</li>
             <li>NAV-képviselet és hatósági ügyintézés</li>
           </ul>
-          </article>
+        </details>
 
-          <article class="price-card" role="listitem">
-          <p class="price-kicker">Kiegészítő szolgáltatás</p>
-          <h3>Bérszámfejtés</h3>
-          <h3></h3>
-          <h3></h3>
-          <p class="price-value">3 500 Ft<span>/fő/hó-tól</span></p>
+        <details class="price-item" role="listitem">
+          <summary>
+            <div>
+              <p class="price-kicker">Kiegészítő szolgáltatás</p>
+              <h3>Bérszámfejtés</h3>
+            </div>
+            <p class="price-value">3 500 Ft<span>/fő/hó-tól</span></p>
+          </summary>
           <ul class="price-list" aria-label="Bérszámfejtési csomag részletei">
             <li>Havi bérjegyzék és bérlista elkészítése</li>
             <li>TB és járulék ügyintézés</li>
             <li>Táppénz igénylés benyújtása</li>
             <li>Belépő és kilépő adminisztráció</li>
           </ul>
-          </article>
+        </details>
 
-          <article class="price-card" role="listitem">
-          <p class="price-kicker">Havi szolgáltatás</p>
-          <h3>Nonprofit egyesületek</h3>
-          <p class="price-value">15 000 Ft<span>/hó-tól</span></p>
+        <details class="price-item" role="listitem">
+          <summary>
+            <div>
+              <p class="price-kicker">Havi szolgáltatás</p>
+              <h3>Nonprofit egyesületek</h3>
+            </div>
+            <p class="price-value">15 000 Ft<span>/hó-tól</span></p>
+          </summary>
           <ul class="price-list" aria-label="Nonprofit egyesületi csomag részletei">
             <li>Könyvelés és bevallások elkészítése</li>
             <li>Beszámolók elkészítése</li>
             <li>NAV és hatósági ügyintézés</li>
             <li>Közvetlen kapcsolattartás</li>
           </ul>
-          </article>
+        </details>
 
-          <article class="price-card" role="listitem">
-          <p class="price-kicker">Egyszeri szolgáltatás</p>
-          <h3>SZJA bevallás</h3>
-          <p class="price-value">12 000 Ft<span>/bevallás-tól</span></p>
+        <details class="price-item" role="listitem">
+          <summary>
+            <div>
+              <p class="price-kicker">Egyszeri szolgáltatás</p>
+              <h3>SZJA bevallás</h3>
+            </div>
+            <p class="price-value">12 000 Ft<span>/bevallás-tól</span></p>
+          </summary>
           <ul class="price-list" aria-label="SZJA bevallási csomag részletei">
             <li>Dokumentumok egyeztetése</li>
             <li>Adókedvezmények figyelembevétele</li>
-            <li>Segítel kihasználni az összes adókedvezményt</li>
+            <li>Segítek kihasználni az összes adókedvezményt</li>
             <li>Bevallás elkészítése</li>
           </ul>
-          </article>
+        </details>
 
-            <article class="price-card" role="listitem">
-          <p class="price-kicker">Egyszeri szolgáltatás</p>
-          <h3>Adózási konzultáció</h3>
-          <p class="price-value">15 000 Ft<span>/60 perc</span></p>
+        <details class="price-item" role="listitem">
+          <summary>
+            <div>
+              <p class="price-kicker">Egyszeri szolgáltatás</p>
+              <h3>Adózási konzultáció</h3>
+            </div>
+            <p class="price-value">15 000 Ft<span>/60 perc</span></p>
+          </summary>
           <ul class="price-list" aria-label="Adózási konzultáció csomag részletei">
             <li>Bevallás elkészítése</li>
             <li>Vállalkozásindítással kapcsolatos tanácsadás</li>
             <li>Gyakorlati, közérthető válaszok</li>
-          </article>
-        </div>
+          </ul>
+        </details>
       </div>
 
       <div class="pricing-note">
@@ -666,12 +701,9 @@
           <h3 id="contact-form-title">Írj nekem</h3>
           <p id="contact-form-lead">Töltsd ki az űrlapot, és 4 órán belül visszajelzek neked.</p>
 
-          <form id="contact-form" method="POST" action="https://formsubmit.co/info@napsugarkonyveles.hu" novalidate aria-label="Kapcsolatfelvételi űrlap">
-            <input type="hidden" name="_subject" value="Uj uzenet a napsugarkonyveles.hu oldalrol" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_next" value="https://www.napsugarkonyveles.hu/?sent=1#contact" />
-            <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" />
+          <form id="contact-form" method="POST" action="https://api.napsugarkonyveles.hu/contact" novalidate aria-label="Kapcsolatfelvételi űrlap">
+            <input type="text" name="company" id="cf-company" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp-field" />
+            <input type="hidden" name="cf-turnstile-response" id="cf-turnstile-response" value="" />
             <div class="form-row">
               <div class="form-group">
                 <label for="cf-name">Teljes név *</label>
@@ -708,6 +740,11 @@
             <div class="form-group">
               <label for="cf-message">Üzenet *</label>
               <textarea id="cf-message" name="message" required placeholder="Röviden írd le, miben segíthetek..."></textarea>
+            </div>
+
+            <div class="turnstile-wrap" id="turnstile-wrap" data-sitekey="">
+              <p id="turnstile-help">Spam védelem aktív. Ha nem látod az ellenőrzőt, az üzenet akkor is elküldhető.</p>
+              <div id="turnstile-widget"></div>
             </div>
 
             <button type="submit" class="form-submit">
@@ -886,12 +923,133 @@
       });
     });
 
+    /* ── Pricing accordion (single open item + smooth animations) ── */
+    const priceItems = Array.from(document.querySelectorAll('.pricing-compact .price-item'));
+    const ACCORDION_EASE = 'cubic-bezier(0.33, 1, 0.68, 1)';
+
+    function resetPriceAnimation(content) {
+      content.style.transition = 'none';
+      content.ontransitionend = null;
+    }
+
+    function openPriceItem(item) {
+      const content = item.querySelector('.price-list');
+      if (!content) {
+        return;
+      }
+
+      if (item.classList.contains('is-expanded') && item.open) {
+        return;
+      }
+
+      item.open = true;
+      item.classList.add('is-expanded');
+
+      resetPriceAnimation(content);
+      content.style.maxHeight = '0px';
+      content.style.opacity = '0';
+      content.style.transform = 'translateY(-6px)';
+      content.style.overflow = 'hidden';
+      void content.offsetHeight;
+
+      requestAnimationFrame(() => {
+        const targetHeight = content.scrollHeight;
+        content.style.transition = `max-height 340ms ${ACCORDION_EASE}, opacity 220ms ease, transform 340ms ${ACCORDION_EASE}`;
+        content.style.maxHeight = `${targetHeight}px`;
+        content.style.opacity = '1';
+        content.style.transform = 'translateY(0)';
+      });
+
+      content.ontransitionend = event => {
+        if (event.propertyName !== 'max-height') {
+          return;
+        }
+
+        if (item.classList.contains('is-expanded')) {
+          content.style.maxHeight = 'none';
+          content.style.overflow = 'visible';
+        }
+
+        content.ontransitionend = null;
+      };
+    }
+
+    function closePriceItem(item) {
+      const content = item.querySelector('.price-list');
+      if (!content || !item.open) {
+        return;
+      }
+
+      item.classList.remove('is-expanded');
+      const currentHeight = content.getBoundingClientRect().height;
+
+      resetPriceAnimation(content);
+      content.style.maxHeight = `${currentHeight}px`;
+      content.style.opacity = '1';
+      content.style.transform = 'translateY(0)';
+      content.style.overflow = 'hidden';
+      void content.offsetHeight;
+
+      requestAnimationFrame(() => {
+        content.style.transition = `max-height 260ms ${ACCORDION_EASE}, opacity 180ms ease, transform 260ms ${ACCORDION_EASE}`;
+        content.style.maxHeight = '0px';
+        content.style.opacity = '0';
+        content.style.transform = 'translateY(-6px)';
+      });
+
+      content.ontransitionend = event => {
+        if (event.propertyName !== 'max-height') {
+          return;
+        }
+
+        item.open = false;
+        content.ontransitionend = null;
+      };
+    }
+
+    priceItems.forEach(item => {
+      const summary = item.querySelector('summary');
+      const content = item.querySelector('.price-list');
+
+      if (content) {
+        content.style.maxHeight = '0px';
+        content.style.opacity = '0';
+        content.style.transform = 'translateY(-6px)';
+      }
+
+      if (!summary) {
+        return;
+      }
+
+      summary.addEventListener('click', event => {
+        event.preventDefault();
+
+        const willOpen = !item.open;
+
+        if (willOpen) {
+          priceItems.forEach(other => {
+            if (other !== item) {
+              closePriceItem(other);
+            }
+          });
+          openPriceItem(item);
+          return;
+        }
+
+        closePriceItem(item);
+      });
+    });
+
     /* ── Contact form ── */
+    const CONTACT_API_ENDPOINT = 'https://api.napsugarkonyveles.hu/contact';
     const form = document.getElementById('contact-form');
     const toast = document.getElementById('toast');
     const formLead = document.getElementById('contact-form-lead');
     const successPanel = document.getElementById('contact-success');
     const newMessageBtn = document.getElementById('contact-new-message');
+    const turnstileWrap = document.getElementById('turnstile-wrap');
+    const turnstileHelp = document.getElementById('turnstile-help');
+    const turnstileResponseInput = document.getElementById('cf-turnstile-response');
 
     function toggleContactFormSuccess(isSuccess) {
       form.hidden = isSuccess;
@@ -909,26 +1067,86 @@
       setTimeout(() => toast.classList.remove('show'), 3500);
     }
 
-    function submitWithClassicPost() {
-      setTimeout(() => {
-        HTMLFormElement.prototype.submit.call(form);
-      }, 450);
+    async function loadTurnstile(siteKey) {
+      if (!siteKey) {
+        turnstileWrap.hidden = true;
+        return;
+      }
+
+      turnstileWrap.hidden = false;
+
+      const existingScript = document.querySelector('script[data-turnstile="true"]');
+      if (!existingScript) {
+        const script = document.createElement('script');
+        script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+        script.async = true;
+        script.defer = true;
+        script.setAttribute('data-turnstile', 'true');
+        document.head.appendChild(script);
+
+        await new Promise((resolve, reject) => {
+          script.addEventListener('load', resolve, { once: true });
+          script.addEventListener('error', reject, { once: true });
+        });
+      }
+
+      if (!window.turnstile) {
+        return;
+      }
+
+      window.turnstile.render('#turnstile-widget', {
+        sitekey: siteKey,
+        callback: token => {
+          turnstileResponseInput.value = token;
+        },
+        'expired-callback': () => {
+          turnstileResponseInput.value = '';
+        },
+        'error-callback': () => {
+          turnstileResponseInput.value = '';
+        }
+      });
     }
 
-    // If FormSubmit redirected back with sent=1 after classic POST, show success state.
-    if (window.location.search.includes('sent=1')) {
-      toggleContactFormSuccess(true);
-      showToast('✅ Megkaptam az üzenetedet, hamarosan jelentkezem.');
+    async function submitContactForm(formData) {
+      const response = await fetch(CONTACT_API_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || result.success !== true) {
+        const errorMessage = (result && (result.error || result.message))
+          ? String(result.error || result.message)
+          : 'Nem sikerult elkuldeni az uzenetet.';
+        throw new Error(errorMessage);
+      }
+
+      return result;
     }
+
+    loadTurnstile(turnstileWrap.dataset.sitekey || '').catch(() => {
+      turnstileHelp.textContent = 'A spam vedelmi modul most nem toltott be. Az uzenetkuldes ettol fuggetlenul mukodik.';
+      turnstileResponseInput.value = '';
+    });
 
     form.addEventListener('submit', async e => {
       e.preventDefault();
       const name    = form.elements['name'].value.trim();
       const email   = form.elements['email'].value.trim();
+      const phone   = form.elements['phone'].value.trim();
+      const service = form.elements['service'].value.trim();
       const message = form.elements['message'].value.trim();
+      const company = form.elements['company'].value.trim();
+      const turnstileToken = turnstileResponseInput.value.trim();
       const submitButton = form.querySelector('button[type="submit"]');
 
-      if (!name || !email || !message) {
+      if (!name || !email || !service || !message) {
         showToast('⚠️ Kérlek töltsd ki az összes kötelező mezőt!');
         return;
       }
@@ -939,35 +1157,40 @@
         return;
       }
 
-      const formData = new FormData(form);
+      // Honeypot field should stay empty; pretend success if bots fill it.
+      if (company.length > 0) {
+        form.reset();
+        turnstileResponseInput.value = '';
+        toggleContactFormSuccess(true);
+        showToast('✅ Megkaptam az üzenetedet, hamarosan jelentkezem.');
+        return;
+      }
+
+      const payload = {
+        name,
+        email,
+        phone,
+        service,
+        message,
+        company,
+        turnstileToken,
+        source: window.location.href,
+        userAgent: navigator.userAgent
+      };
 
       submitButton.disabled = true;
       submitButton.setAttribute('aria-busy', 'true');
       showToast('Küldés folyamatban...');
 
       try {
-        const response = await fetch('https://formsubmit.co/ajax/napsugarkonyveles@gmail.com', {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json'
-          },
-          body: formData
-        });
-
-        const result = await response.json().catch(() => ({}));
-        const isSuccess = response.ok && (result.success === true || String(result.success) === 'true');
-
-        if (!isSuccess) {
-          const apiMessage = (result && (result.message || result.error)) ? String(result.message || result.error) : '';
-          throw new Error(apiMessage || 'Sikertelen kuldes');
-        }
+        await submitContactForm(payload);
 
         showToast('✅ Megkaptam az üzenetedet, hamarosan jelentkezem.');
         form.reset();
+        turnstileResponseInput.value = '';
         toggleContactFormSuccess(true);
       } catch (error) {
-        // Silent fallback so users do not see technical provider-specific messages.
-        submitWithClassicPost();
+        showToast('⚠️ Most nem sikerült elküldeni. Kérlek írj az info@napsugarkonyveles.hu címre vagy hívj telefonon.');
       } finally {
         submitButton.disabled = false;
         submitButton.removeAttribute('aria-busy');
@@ -991,7 +1214,7 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll(
-      '.service-card, .price-card, .qualification-item, .number-card, .why-point, .process-step'
+      '.service-card, .price-card, .price-item, .qualification-item, .number-card, .why-point, .process-step'
     ).forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(20px)';
