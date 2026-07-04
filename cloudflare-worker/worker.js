@@ -104,7 +104,7 @@ async function verifyTurnstile(token, remoteIp, env) {
 
 async function sendEmail(payload, env) {
   if (!env.RESEND_API_KEY || !env.FROM_EMAIL || !env.TO_EMAIL) {
-    throw new Error('Missing email configuration in worker secrets/vars');
+    throw new AppError('Hianyzik az email beallitas (RESEND_API_KEY, FROM_EMAIL vagy TO_EMAIL).', 500);
   }
 
   const emailBody = [
@@ -134,7 +134,11 @@ async function sendEmail(payload, env) {
 
   if (!resendResponse.ok) {
     const errorText = await resendResponse.text();
-    throw new Error(`Email kuldes hiba: ${errorText}`);
+    console.error('Resend API error', {
+      status: resendResponse.status,
+      body: errorText
+    });
+    throw new AppError('Email kuldes sikertelen. Ellenorizd a RESEND_API_KEY kulcsot es a felado email domain hitelesiteset a Resendben.', 502);
   }
 }
 
@@ -210,7 +214,12 @@ export default {
       return json({ success: true }, 200, corsHeaders);
     } catch (error) {
       const status = error instanceof AppError ? error.status : 500;
-      const isServerError = status >= 500;
+      const isServerError = status >= 500 && !(error instanceof AppError);
+
+      console.error('Contact endpoint error', {
+        status,
+        message: String(error && error.message ? error.message : error)
+      });
 
       return json(
         {

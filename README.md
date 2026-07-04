@@ -126,6 +126,7 @@ npx wrangler deploy
 Az `npx wrangler deploy` parancs feltölti a `worker.js`-t, és a `wrangler.toml` alapján létrehozza a publisholt végpontot.
 
 Ha minden jól ment, a worker elérhető lesz az `https://api.napsugarkonyveles.hu/contact` címen.
+Ez egy `POST` endpoint, ezért ha böngészőben simán megnyitod (`GET`), a `{"success":false,"error":"Method not allowed"}` válasz normális.
 
 ### 2. DNS és route beállítás
 
