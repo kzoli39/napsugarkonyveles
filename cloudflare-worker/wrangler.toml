@@ -1,0 +1,11 @@
+name = "napsugar-contact-api"
+main = "worker.js"
+compatibility_date = "2026-07-04"
+
+[vars]
+FROM_EMAIL = "Napsugar Kapcsolat <kapcsolat@mg.napsugarkonyveles.hu>"
+TO_EMAIL = "info@napsugarkonyveles.hu"
+
+[[routes]]
+pattern = "api.napsugarkonyveles.hu/contact"
+zone_name = "napsugarkonyveles.hu"
