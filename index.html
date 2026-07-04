@@ -21,42 +21,67 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/webp" href="images/logo2.webp" />
   
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2GHGECC3P"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  
-    gtag('config', 'G-W2GHGECC3P');
-  </script>
+    window.NSK_COOKIE_KEY = 'nsk_cookie_consent_v1';
+    window.NSK_TRACKING_IDS = {
+      ga: 'G-W2GHGECC3P',
+      meta: '1556938716058482',
+      clarity: 'xh7xiqjoov'
+    };
+    window.NSK_TRACKING_ENABLED = false;
 
-  <!-- Meta Pixel -->
-  <script>
-    window.META_PIXEL_ID = '1556938716058482';
+    window.loadNskTracking = function () {
+      if (window.NSK_TRACKING_ENABLED) {
+        return;
+      }
 
-    if (window.META_PIXEL_ID) {
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
+      window.NSK_TRACKING_ENABLED = true;
 
-      fbq('init', window.META_PIXEL_ID);
-      fbq('track', 'PageView');
+      if (window.NSK_TRACKING_IDS.ga) {
+        const gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(window.NSK_TRACKING_IDS.ga);
+        document.head.appendChild(gaScript);
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () {
+          window.dataLayer.push(arguments);
+        };
+        window.gtag('js', new Date());
+        window.gtag('config', window.NSK_TRACKING_IDS.ga);
+      }
+
+      if (window.NSK_TRACKING_IDS.meta) {
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+
+        window.fbq('init', window.NSK_TRACKING_IDS.meta);
+        window.fbq('track', 'PageView');
+      }
+
+      if (window.NSK_TRACKING_IDS.clarity) {
+        (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, 'clarity', 'script', window.NSK_TRACKING_IDS.clarity);
+      }
+    };
+
+    try {
+      if (window.localStorage && localStorage.getItem(window.NSK_COOKIE_KEY) === 'accepted') {
+        window.loadNskTracking();
+      }
+    } catch (error) {
+      // Ignore storage failures (for example private browsing restrictions).
     }
   </script>
-
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "xh7xiqjoov");
-</script>
 </head>
 
 <body>
@@ -726,7 +751,7 @@
 
         <div class="contact-form-wrap">
           <h3 id="contact-form-title">Írj nekem</h3>
-          <p id="contact-form-lead">Töltsd ki az űrlapot, és 4 órán belül visszajelzek neked.</p>
+          <!-- <p id="contact-form-lead">Töltsd ki az űrlapot, és 4 órán belül visszajelzek neked.</p> -->
 
           <form id="contact-form" method="POST" action="https://api.napsugarkonyveles.hu/contact" novalidate aria-label="Kapcsolatfelvételi űrlap">
             <input type="text" name="company" id="cf-company" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp-field" />
@@ -873,6 +898,8 @@
           <a href="aszf.html#impresszum">Impresszum</a>
           &nbsp;·&nbsp;
           <a href="aszf.html#adatvedelem">Adatvédelmi tájékoztató</a>
+          &nbsp;·&nbsp;
+          <a href="#cookie-settings" id="cookie-settings-link">Cookie beállítások</a>
         </span>
       </div>
     </div>
@@ -884,6 +911,20 @@
   <!-- Toast notification -->
   <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
+  <!-- Cookie consent -->
+  <aside class="cookie-banner" id="cookie-banner" role="dialog" aria-labelledby="cookie-banner-title" aria-describedby="cookie-banner-text" hidden>
+    <p id="cookie-banner-title" class="cookie-banner-title">Sütik használata</p>
+    <p id="cookie-banner-text" class="cookie-banner-text">
+      Az oldal statisztikai és marketing célú sütiket használ (Google Analytics, Meta Pixel, Clarity).
+      Ezeket csak hozzájárulás után aktiváljuk.
+      Részletek: <a href="aszf.html#adatvedelem">Adatvédelmi tájékoztató</a>.
+    </p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="cookie-btn cookie-btn-secondary" id="cookie-reject">Csak szükséges</button>
+      <button type="button" class="cookie-btn cookie-btn-primary" id="cookie-accept">Összes elfogadása</button>
+    </div>
+  </aside>
+
   <!-- ══════════════════════════════════════
        JAVASCRIPT
   ══════════════════════════════════════ -->
@@ -893,6 +934,79 @@
     const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
     const sections = document.querySelectorAll('section[id]');
     const scrollTopBtn = document.getElementById('scroll-top');
+    const cookieBanner = document.getElementById('cookie-banner');
+    const cookieAcceptBtn = document.getElementById('cookie-accept');
+    const cookieRejectBtn = document.getElementById('cookie-reject');
+    const cookieSettingsLink = document.getElementById('cookie-settings-link');
+
+    function getCookieConsentValue() {
+      try {
+        if (!window.localStorage) {
+          return '';
+        }
+        return localStorage.getItem(window.NSK_COOKIE_KEY) || '';
+      } catch (error) {
+        return '';
+      }
+    }
+
+    function setCookieConsentValue(value) {
+      try {
+        if (!window.localStorage) {
+          return;
+        }
+        localStorage.setItem(window.NSK_COOKIE_KEY, value);
+      } catch (error) {
+        // Ignore storage failures.
+      }
+    }
+
+    function showCookieBanner() {
+      cookieBanner.hidden = false;
+      cookieBanner.classList.add('is-visible');
+    }
+
+    function hideCookieBanner() {
+      cookieBanner.classList.remove('is-visible');
+      cookieBanner.hidden = true;
+    }
+
+    function applyCookieConsent(consentValue) {
+      if (consentValue === 'accepted') {
+        hideCookieBanner();
+        if (typeof window.loadNskTracking === 'function') {
+          window.loadNskTracking();
+        }
+        return;
+      }
+
+      if (consentValue === 'rejected') {
+        hideCookieBanner();
+        return;
+      }
+
+      showCookieBanner();
+    }
+
+    applyCookieConsent(getCookieConsentValue());
+
+    cookieAcceptBtn.addEventListener('click', () => {
+      setCookieConsentValue('accepted');
+      applyCookieConsent('accepted');
+      showToast('Köszönjük! A statisztikai sütik engedélyezve lettek.');
+    });
+
+    cookieRejectBtn.addEventListener('click', () => {
+      setCookieConsentValue('rejected');
+      applyCookieConsent('rejected');
+      showToast('Rendben, csak a szükséges működés marad aktív.');
+    });
+
+    cookieSettingsLink.addEventListener('click', event => {
+      event.preventDefault();
+      showCookieBanner();
+      cookieAcceptBtn.focus();
+    });
 
     function onScroll() {
       const scrollY = window.scrollY;
@@ -1080,10 +1194,12 @@
 
     function toggleContactFormSuccess(isSuccess) {
       form.hidden = isSuccess;
-      formLead.hidden = isSuccess;
+      if (formLead) {
+        formLead.hidden = isSuccess;
+      }
       successPanel.hidden = !isSuccess;
 
-      if (isSuccess) {
+      if (isSuccess && newMessageBtn) {
         newMessageBtn.focus();
       }
     }
@@ -1132,6 +1248,7 @@
 
       window.turnstile.render('#turnstile-widget', {
         sitekey: siteKey,
+        size: 'flexible',
         callback: token => {
           turnstileResponseInput.value = token;
         },
