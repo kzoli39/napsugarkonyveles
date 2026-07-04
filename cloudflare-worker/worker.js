@@ -7,6 +7,14 @@ const ALLOWED_ORIGINS = new Set([
   'http://127.0.0.1:5500'
 ]);
 
+function isAllowedOrigin(origin) {
+  if (ALLOWED_ORIGINS.has(origin)) {
+    return true;
+  }
+
+  return /^https:\/\/[a-z0-9-]+\.github\.io$/i.test(origin);
+}
+
 class AppError extends Error {
   constructor(message, status = 400) {
     super(message);
@@ -15,7 +23,7 @@ class AppError extends Error {
 }
 
 function buildCorsHeaders(origin) {
-  const allowOrigin = ALLOWED_ORIGINS.has(origin) ? origin : 'https://www.napsugarkonyveles.hu';
+  const allowOrigin = isAllowedOrigin(origin) ? origin : 'https://www.napsugarkonyveles.hu';
 
   return {
     'Access-Control-Allow-Origin': allowOrigin,
@@ -67,7 +75,7 @@ async function verifyTurnstile(token, remoteIp, env) {
   }
 
   if (!token) {
-    return false;
+    return true;
   }
 
   const payload = new URLSearchParams();

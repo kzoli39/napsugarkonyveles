@@ -1659,7 +1659,11 @@ footer {
   opacity: 0;
   transition: opacity var(--transition), transform var(--transition);
   z-index: 2000;
-  white-space: nowrap;
+  max-width: min(92vw, 560px);
+  width: fit-content;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: center;
   pointer-events: none;
   border-left: 4px solid var(--sun-yellow);
 }
@@ -1929,6 +1933,12 @@ footer {
   .legal-header .container { flex-direction: column; align-items: flex-start; }
   .legal-content { padding: 1.3rem; }
   .legal-footer .container { flex-direction: column; }
+
+  .toast {
+    bottom: 1rem;
+    padding: 0.8rem 1rem;
+    max-width: calc(100vw - 2rem);
+  }
 
   .nav-logo { min-width: auto; }
   .nav-logo .logo-icon { width: 52px; height: 52px; }
