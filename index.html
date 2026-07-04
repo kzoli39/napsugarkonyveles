@@ -1190,7 +1190,9 @@
         turnstileResponseInput.value = '';
         toggleContactFormSuccess(true);
       } catch (error) {
-        showToast('⚠️ Most nem sikerült elküldeni. Kérlek írj az info@napsugarkonyveles.hu címre vagy hívj telefonon.');
+        const backendMessage = error && error.message ? String(error.message) : '';
+        const fallbackMessage = 'Most nem sikerült elküldeni. Kérlek írj az info@napsugarkonyveles.hu címre vagy hívj telefonon.';
+        showToast(`⚠️ ${backendMessage || fallbackMessage}`);
       } finally {
         submitButton.disabled = false;
         submitButton.removeAttribute('aria-busy');
