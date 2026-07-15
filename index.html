@@ -20,6 +20,22 @@
   <title>Napsugár Könyvelőiroda | Online könyvelés vállalkozóknak országszerte</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/png" href="images/favicon.png" />
+  <script>
+    (function normalizeCleanUrl() {
+      const url = new URL(window.location.href);
+      let targetPath = url.pathname;
+
+      if (targetPath.endsWith('/index.html')) {
+        targetPath = targetPath.slice(0, -'/index.html'.length) || '/';
+      } else if (targetPath.endsWith('.html')) {
+        targetPath = targetPath.slice(0, -'.html'.length);
+      }
+
+      if (targetPath !== url.pathname) {
+        window.location.replace(targetPath + url.search + url.hash);
+      }
+    })();
+  </script>
   
   <script>
     window.NSK_COOKIE_KEY = 'nsk_cookie_consent_v1';
@@ -921,9 +937,9 @@
       <div class="footer-bottom">
         <span>© 2026 Napsugár Könyvelőiroda. Minden jog fenntartva.</span>
         <span>
-          <a href="aszf.html#impresszum">Impresszum</a>
+          <a href="/aszf#impresszum">Impresszum</a>
           &nbsp;·&nbsp;
-          <a href="aszf.html#adatvedelem">Adatvédelmi tájékoztató</a>
+          <a href="/aszf#adatvedelem">Adatvédelmi tájékoztató</a>
           &nbsp;·&nbsp;
           <a href="#cookie-settings" id="cookie-settings-link">Cookie beállítások</a>
         </span>
@@ -943,7 +959,7 @@
     <p id="cookie-banner-text" class="cookie-banner-text">
       Az oldal statisztikai és marketing célú sütiket használ.
       Ezeket csak hozzájárulás után aktiváljuk.
-      Részletek: <a href="aszf.html#adatvedelem">Adatvédelmi tájékoztató</a>.
+      Részletek: <a href="/aszf#adatvedelem">Adatvédelmi tájékoztató</a>.
     </p>
     <div class="cookie-banner-actions">
       <button type="button" class="cookie-btn cookie-btn-secondary" id="cookie-reject">Csak szükséges</button>
