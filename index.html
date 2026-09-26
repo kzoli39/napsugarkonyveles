@@ -18,6 +18,8 @@
   <meta name="twitter:description" content="Napsugár Könyvelőiroda jogi dokumentumai: Impresszum, Általános Szerződési Feltételek és Adatvédelmi tájékoztató." />
   <meta name="twitter:image" content="https://www.napsugarkonyveles.hu/images/logo_big.webp" />
   <title>Napsugár Könyvelőiroda | Online könyvelés vállalkozóknak országszerte</title>
+  <link rel="preconnect" href="https://fonts.bunny.net" />
+  <link rel="stylesheet" href="https://fonts.bunny.net/css?family=plus-jakarta-sans:400,500,600,700,800&display=swap" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/png" href="images/favicon.png" />
   <script>
@@ -170,7 +172,7 @@
             <a href="#services" class="btn-secondary">
               <span>Megnézem a szolgáltatásokat</span>
             </a>
-              <span style="color:#E2C799;">15 perces első egyeztetés díjmentesen, kötelezettség nélkül.</span>
+              <span class="hero-note">15 perces első egyeztetés díjmentesen, kötelezettség nélkül.</span>
           </div>
 
           <!-- <div class="hero-stats" role="list" aria-label="Kulcsadatok">
@@ -195,7 +197,7 @@
               <!-- <div class="hc-icon">💻</div> -->
               <div>
                 <div class="hc-title">Miért választják ügyfeleim az online könyvelést?</div>
-                <div class="hc-sub" style="color:#E2C799;">Egyszerűbb ügyintézés, országos elérhetőség.</div>
+                <div class="hc-sub">Egyszerűbb ügyintézés, országos elérhetőség.</div>
               </div>
             </div>
             <div class="hc-items">
@@ -1438,25 +1440,35 @@
       form.elements['name'].focus();
     });
 
-    /* ── Intersection Observer – fade-in animation ── */
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
+    /* ── Intersection Observer – staggered reveal animation ── */
+    const revealTargets = document.querySelectorAll(
+      '.section-tag, .section-title, .section-subtitle, .about-visual, .qualifications-panel, ' +
+      '.service-card, .price-item, .qualification-item, .number-card, .why-point, .process-step, ' +
+      '.contact-detail, .contact-hours, .contact-form-wrap, .pricing-note, ' +
+      '.contact-process-actions, .pricing-actions'
+    );
 
-    document.querySelectorAll(
-      '.service-card, .price-card, .price-item, .qualification-item, .number-card, .why-point, .process-step'
-    ).forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-      io.observe(el);
-    });
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      revealTargets.forEach(el => {
+        if (el.closest('#hero')) {
+          return;
+        }
+        const siblings = Array.from(el.parentElement.children);
+        const index = siblings.indexOf(el);
+        el.style.setProperty('--reveal-delay', `${(index % 6) * 70}ms`);
+        el.classList.add('reveal');
+        io.observe(el);
+      });
+    }
   </script>
 
 </body>
