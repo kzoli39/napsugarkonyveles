@@ -413,10 +413,9 @@ img {
   display: flex;
   align-items: center;
   background:
-    radial-gradient(55% 50% at 88% 12%, rgba(235,196,104,0.2) 0%, transparent 62%),
-    radial-gradient(45% 45% at 0% 100%, rgba(214,172,90,0.16) 0%, transparent 62%),
-    radial-gradient(40% 40% at 35% 35%, rgba(110,150,230,0.1) 0%, transparent 70%),
-    var(--navy);
+    radial-gradient(ellipse 55% 60% at 72% 38%, rgba(235,196,104,0.2) 0%, transparent 65%),
+    radial-gradient(ellipse 90% 45% at 50% 118%, rgba(235,196,104,0.26) 0%, transparent 70%),
+    linear-gradient(180deg, #12213A 0%, #1B3050 52%, #2A4262 100%);
   border-radius: 0 0 var(--radius-xl) var(--radius-xl);
   overflow: hidden;
   isolation: isolate;
@@ -430,37 +429,141 @@ img {
   z-index: -1;
 }
 
-/* Subtle grid texture */
-.hero-bg-shapes::before {
+/* ── Sun motif ── */
+.hero-sun {
+  --sun-size: clamp(190px, 21vw, 300px);
+  position: absolute;
+  top: 27%;
+  left: calc(50% + min(470px, 31vw));
+  width: var(--sun-size);
+  height: var(--sun-size);
+  transform: translate(-50%, -50%);
+  animation: sun-rise 1.8s var(--ease-out) both;
+}
+
+@keyframes sun-rise {
+  from { opacity: 0; transform: translate(-50%, -20%) scale(0.85); }
+  to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Slowly turning rays */
+.hero-sun-rays {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 460%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  background: repeating-conic-gradient(from 0deg, rgba(235,196,104,0.16) 0deg 2.5deg, transparent 2.5deg 12deg);
+  -webkit-mask-image: radial-gradient(circle, #000 12%, rgba(0,0,0,0.45) 30%, transparent 58%);
+          mask-image: radial-gradient(circle, #000 12%, rgba(0,0,0,0.45) 30%, transparent 58%);
+  animation: sun-spin 140s linear infinite;
+}
+
+@keyframes sun-spin {
+  to { rotate: 360deg; }
+}
+
+/* Concentric halo rings */
+.hero-sun-halo,
+.hero-sun-halo::before,
+.hero-sun-halo::after {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(235,196,104,0.22);
+}
+
+.hero-sun-halo {
+  inset: -22%;
+  animation: halo-breathe 7s ease-in-out infinite;
+}
+
+.hero-sun-halo::before,
+.hero-sun-halo::after {
   content: '';
+}
+
+.hero-sun-halo::before {
+  inset: -20%;
+  border-color: rgba(235,196,104,0.14);
+  border-style: dashed;
+}
+
+.hero-sun-halo::after {
+  inset: -42%;
+  border-color: rgba(235,196,104,0.08);
+}
+
+@keyframes halo-breathe {
+  0%, 100% { transform: scale(1);    opacity: 1; }
+  50%      { transform: scale(1.05); opacity: 0.7; }
+}
+
+.hero-sun-core {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
-  background-size: 56px 56px;
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 60% 40%, #000 10%, transparent 75%);
-          mask-image: radial-gradient(ellipse 70% 60% at 60% 40%, #000 10%, transparent 75%);
-}
-
-/* Drifting sun orb */
-.hero-bg-shapes::after {
-  content: '';
-  position: absolute;
-  top: 6%;
-  right: 6%;
-  width: min(460px, 60vw);
-  aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(235,196,104,0.34) 0%, rgba(214,172,90,0.12) 45%, transparent 70%);
-  filter: blur(30px);
-  animation: orb-drift 16s ease-in-out infinite alternate;
+  background: radial-gradient(circle at 38% 32%, #FFF6D6 0%, #F4D98A 28%, #E6BE5E 62%, #CFA044 100%);
+  box-shadow:
+    0 0 60px 12px rgba(235,196,104,0.45),
+    0 0 180px 70px rgba(235,196,104,0.18),
+    inset -14px -20px 50px rgba(175,125,40,0.25);
 }
 
-@keyframes orb-drift {
-  0%   { transform: translate(0, 0) scale(1); }
-  50%  { transform: translate(-60px, 40px) scale(1.08); }
-  100% { transform: translate(-20px, 90px) scale(0.96); }
+/* Golden waves – echoing the logo's swash */
+.hero-waves {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: clamp(110px, 17vw, 230px);
+  overflow: visible;
+}
+
+.hero-waves path {
+  fill: none;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.hero-waves .wave-fill {
+  fill: rgba(235,196,104,0.07);
+  stroke: none;
+  animation: wave-drift 30s linear infinite;
+}
+
+.hero-waves .wave-1 { stroke: rgba(235,196,104,0.55); stroke-width: 2;   animation: wave-drift 18s linear infinite; }
+.hero-waves .wave-2 { stroke: rgba(235,196,104,0.3);  stroke-width: 1.5; animation: wave-drift 26s linear infinite reverse; }
+.hero-waves .wave-3 { stroke: rgba(235,196,104,0.16); stroke-width: 1.2; animation: wave-drift 36s linear infinite; }
+
+@keyframes wave-drift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-720px); }
+}
+
+/* Twinkling light specks */
+.hero-spark {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #FFF1C4;
+  box-shadow: 0 0 10px 2px rgba(235,196,104,0.7);
+  opacity: 0;
+  animation: twinkle 5s ease-in-out infinite;
+}
+
+.hero-spark:nth-of-type(1) { top: 18%; left: 8%;  animation-delay: 0.4s; }
+.hero-spark:nth-of-type(2) { top: 30%; left: 42%; animation-delay: 1.6s; width: 3px; height: 3px; }
+.hero-spark:nth-of-type(3) { top: 12%; left: 62%; animation-delay: 2.8s; }
+.hero-spark:nth-of-type(4) { top: 64%; left: 48%; animation-delay: 3.6s; width: 3px; height: 3px; }
+.hero-spark:nth-of-type(5) { top: 22%; left: 90%; animation-delay: 1s; }
+.hero-spark:nth-of-type(6) { top: 58%; left: 4%;  animation-delay: 2.2s; width: 3px; height: 3px; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0;   transform: scale(0.6); }
+  50%      { opacity: 0.9; transform: scale(1); }
 }
 
 .hero-content {
@@ -494,18 +597,13 @@ img {
 
 .hero-text .eyebrow::before {
   content: '';
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
   background: var(--sun-yellow);
-  box-shadow: 0 0 0 0 rgba(235,196,104,0.6);
-  animation: pulse-dot 2.4s ease-out infinite;
-}
-
-@keyframes pulse-dot {
-  0%   { box-shadow: 0 0 0 0 rgba(235,196,104,0.55); }
-  70%  { box-shadow: 0 0 0 10px rgba(235,196,104,0); }
-  100% { box-shadow: 0 0 0 0 rgba(235,196,104,0); }
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='4.2'/%3E%3Cpath d='M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='4.2'/%3E%3Cpath d='M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8'/%3E%3C/svg%3E") center / contain no-repeat;
+  animation: sun-spin 12s linear infinite;
 }
 
 .hero-text h1 {
@@ -604,23 +702,11 @@ img {
   animation: rise-in 1.1s var(--ease-out) 0.3s both;
 }
 
-.hero-visual::before {
-  content: '';
-  position: absolute;
-  width: 78%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: conic-gradient(from 120deg, rgba(235,196,104,0.5), rgba(214,172,90,0.35), rgba(110,150,230,0.25), rgba(235,196,104,0.5));
-  filter: blur(60px);
-  opacity: 0.55;
-  z-index: -1;
-}
-
 .hero-card {
   position: relative;
-  background: linear-gradient(160deg, rgba(255,255,255,0.13) 0%, rgba(255,255,255,0.04) 100%);
-  backdrop-filter: blur(20px) saturate(1.4);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  background: linear-gradient(160deg, rgba(38,62,98,0.72) 0%, rgba(23,42,69,0.6) 100%);
+  backdrop-filter: blur(22px) saturate(1.3);
+  -webkit-backdrop-filter: blur(22px) saturate(1.3);
   border: 1px solid rgba(255,255,255,0.16);
   border-radius: 28px;
   padding: 2.2rem;
@@ -2531,6 +2617,17 @@ footer {
   html { scroll-padding-top: 84px; }
   .hero-content  { grid-template-columns: 1fr; padding: 130px 0 70px; }
   .hero-visual   { display: none; }
+  .hero-sun {
+    --sun-size: 170px;
+    top: -50px;
+    left: auto;
+    right: -60px;
+    transform: none;
+    animation: none;
+    opacity: 0.55;
+  }
+  .hero-sun-rays { width: 520%; }
+  .hero-spark:nth-of-type(n+4) { display: none; }
   .hero-stats    { flex-wrap: wrap; gap: 1.5rem; }
   .hero-btns > a { flex: 1 1 auto; }
   .about-grid    { grid-template-columns: 1fr; gap: 3.5rem; }
